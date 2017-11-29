@@ -1,0 +1,23 @@
+{
+    "name": "php service framework",
+    "description": "PHP Service Module Controller View framework ",
+    "authors": [
+        {
+            "name": "wenhui.peng",
+            "email": "408178197@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "vendor/core",
+            "Service\\": "service/",
+            "App\\": "app/",
+            "Module\\": "module/",
+            "Middleware\\": "middleware/"
+        },
+        "psr-0":{
+        },
+        "files":["vendor/core/helpers/common.php"]
+    }
+}
