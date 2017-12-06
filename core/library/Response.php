@@ -46,6 +46,23 @@ class Response{
         echo fread($h, filesize($file));
     }
 
+    public function ajax($data, $type = "JSON")
+    {
+        $type = strtoupper($type);
+        switch ($type) {
+            case "HTML" :
+                $data = htmlspecialchars($data);
+                break;
+            case "TEXT" :
+                $data = $data;
+                break;
+            default :
+                $data = json_encode($data);
+        }
+        $this->output($data);
+        exit;
+    }
+
     public function output($data){
 
         echo $data;
