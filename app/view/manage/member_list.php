@@ -4,9 +4,6 @@
 <div class="content">
     <div class="header">
         <h1 class="page-title">人员列表</h1>
-        <ul class="breadcrumb">
-            <li><a href="/">主菜单</a></li>
-        </ul>
     </div>
     <div class="main-content">
 

@@ -10,7 +10,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Core\\": "vendor/core",
+            "Core\\": "core/",
             "Service\\": "service/",
             "App\\": "app/",
             "Module\\": "module/",
@@ -18,6 +18,6 @@
         },
         "psr-0":{
         },
-        "files":["vendor/core/helpers/common.php"]
+        "files":["core/helpers/common.php"]
     }
 }

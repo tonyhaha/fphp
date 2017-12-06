@@ -6,6 +6,7 @@ use Service\Passport;
 use Core\library\mailer\Mailer;
 use Core\library\db\Db;
 use Service\Auth;
+use Core\library\Response;
 
 class User extends Controller{
 
@@ -46,10 +47,9 @@ class User extends Controller{
         $pagesize = 20;
         $curpage = max($this->request->get('page'),1);
         $phone = $this->request->get('phone');
+        $where = 'where 1=1';
         if($phone){
-            $where = "where phone = '$phone'";
-        }else{
-            $where = '';
+            $where = " and phone = '$phone'";
         }
         $offset = ($curpage-1)*$pagesize;
         $rs = $this->mysql->query("select * from dp_info $where limit $offset,$pagesize");
@@ -123,7 +123,7 @@ class User extends Controller{
             $sex   = $this->request->post('sex');
             $image   = $this->request->post('image');
             $phone = $this->request->post('phone');
-            if($name && $image && $sex && $birthday && $phone && $country && $passport && $activationdate){
+            if($name && $sex && $birthday && $phone && $country && $passport && $activationdate){
                 $data['name'] = trim($name);
                 $data['user'] = trim($user);
                 $data['activationdate'] = $activationdate;
@@ -163,6 +163,23 @@ class User extends Controller{
         }else{
             redirect($ref);
         }
+    }
+
+    public function del(){
+        $id = $this->request->get('id');
+        if($id){
+            $rs = DB::getInstance()->delete('dp_info',array('id'=>$id));
+            if($rs){
+                $msg = "提交成功 <-_-> 正在为你转跳..";
+                $ref = $this->data['config']['default_php'].'/user/info';
+                $code = 200;
+            }else{
+                $msg = "提交失败";
+                $ref = $this->data['config']['default_php'].'/user/info';
+                $code = -1;
+            }
+        }
+        ajax(array('code' => $code, 'msg' => $msg, 'url' => $ref));
     }
 
     public function ajaxReset(){

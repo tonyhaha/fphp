@@ -9,6 +9,6 @@ return array(
     'Service\\' => array($baseDir . '/service'),
     'Module\\' => array($baseDir . '/module'),
     'Middleware\\' => array($baseDir . '/middleware'),
-    'Core\\' => array($vendorDir . '/core'),
+    'Core\\' => array($baseDir . '/core'),
     'App\\' => array($baseDir . '/app'),
 );

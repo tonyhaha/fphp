@@ -4,9 +4,6 @@
 <div class="content">
     <div class="header">
         <h1 class="page-title">规则列表</h1>
-        <ul class="breadcrumb">
-            <li><a href="/">主菜单</a></li>
-        </ul>
     </div>
     <a class="btn btn-primary"  href="<?php echo $config['default_php']?>/manage/add_rule">添加规则</a><br><br>
     <div class="main-content">
