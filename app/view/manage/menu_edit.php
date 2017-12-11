@@ -72,6 +72,12 @@
                         <div class="help-block">如果~类型~是普通菜单，此表单默认即可</div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">连接</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control span12" name="url" value="<?php echo $info['url'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="hidden" value="<?php echo $nid ?>" name="nid">
                             <button type="submit" class="btn btn-default" name="submit">提交</button>

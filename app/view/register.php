@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head>
     <meta charset="utf-8">
-    <title><?php echo $config["project"];?></title>
+    <title><?php echo $config["project"];?>--注册</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -15,59 +15,10 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo HOST?>/static/theme.css">
     <link rel="stylesheet" type="text/css" href="<?php echo HOST?>/static/premium.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo HOST?>/static/bootstrap-datetimepicker.min.css">
+
 </head>
 <body class=" theme-blue">
-<style type="text/css">
-    #feedback{
-        height: 200px;
-        text-align: center;
-        height: 160px;
-        border: 1px solid silver;
-        border-radius: 3px;
-    }
-    #feedback img{
-        margin:3px 10px;
-        border: 1px solid silver;
-        border-radius:3px;
-        padding: 6px;
-        width: 35%;
-        height: 85%;
-    }
-    #feedback p{
-        font-family: "微软雅黑";
-        line-height: 120px;
-        color: #ccc;
-    }
-    .file {
-        position: relative;
-        display: inline-block;
-        border: 1px solid #1ab294;
-        border-radius: 4px;
-        padding: 8px 16px;
-        overflow: hidden;
-        color: #fff;
-        text-decoration: none;
-        text-indent: 0;
-        line-height: 20px;
-        color: #1ab294;
-    }
 
-    .file input {
-        position: absolute;
-        font-size: 100px;
-        right: 0;
-        top: 0;
-        opacity: 0;
-    }
-    .box{
-        margin-top: 10px;
-        text-align: center;
-    }
-    .box a{
-        margin-left: 10px;
-    }
-</style>
 <!-- Demo page code -->
 
 <script type="text/javascript">
@@ -121,7 +72,7 @@
 
 <div class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
-        <a class="" href="index.html"><span class="navbar-brand">    <?php echo $config["project"];?></span></a></div>
+        <a class="" href="index.html"><span class="navbar-brand">     <span class="fa"> <img src="<?php echo HOST?>/static/logos.png" height="25"></span><?php echo $config["project"];?></span></a></div>
 
     <div class="navbar-collapse collapse" style="height: 1px;">
 
@@ -131,80 +82,50 @@
 
 
 
-<div class="dialog" style="max-width: 800px;">
+<div class="dialog">
     <div class="panel panel-default">
-        <p class="panel-heading no-collapse">数据提交</p>
+        <p class="panel-heading no-collapse">注册</p>
         <div class="panel-body">
             <form action="<?php echo $config['default_php']?>/user/ajaxRegister" method="post" id="register-form">
                 <div class="form-group">
-                    <label>电话号码</label>
+                    <label>公司名</label>
+                    <input type="text" class="form-control span12" name="company" id="company" >
+                </div>
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" class="form-control span12" name="username" id="username" >
+                </div>
+                <div class="form-group">
+                    <label>邮件</label>
+                    <input type="text" class="form-control span12" name="email"  id="email" >
+                </div>
+                <div class="form-group">
+                    <label>手机号</label>
                     <input type="text" class="form-control span12" name="phone" id="phone">
                 </div>
-                <div class="form-group form_datetime">
-                    <label>激活日期</label>
-                    <input type="text" class="form-control span12" name="activationdate" id="activationdate" >
-                    <span class="add-on"><i class="icon-remove"></i></span>
-                    <span class="add-on"><i class="icon-calendar"></i></span>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password"  id="password" class="form-control span12" name="password">
                 </div>
                 <div class="form-group">
-                    <label>护照号码</label>
-                    <input type="text" class="form-control span12" name="passport"  id="passport" >
-                </div>
-
-                <div class="form-group">
-                    <label>国家</label>
-                    <input type="text"  id="country" class="form-control span12" name="country">
-                </div>
-                <div class="form-group ">
-                    <label>出生年月日</label>
-                    <input type="text"  id="birthday" class="form-control span12 " name="birthday">
-                    <span class="add-on"><i class="icon-remove"></i></span>
-                    <span class="add-on"><i class="icon-calendar"></i></span>
+                    <label>确认密码</label>
+                    <input type="password"  id="confirm_password" class="form-control span12" name="confirm_password">
                 </div>
                 <div class="form-group">
-                    <label>姓拼音</label>
-                    <input type="text"  id="user" class="form-control span12" name="user">
-                </div>
-                <div class="form-group">
-                    <label>名拼音</label>
-                    <input type="text"  id="name" class="form-control span12" name="name">
-                </div>
-                <div class="form-group">
-                    <label>性别</label>
-                        <label class="checkbox-inline">  男 <input type="radio"  id="sex" class="form-control" name="sex" value="男" checked></label>
-                        <label class="checkbox-inline">   女 <input type="radio"  id="sex" class="form-control" name="sex" value="女"></label>
-                </div>
-                <div class="form-group">
-                    <label>护照样本</label>
-                    <div id="feedback">
-                    </div>
-                    <div class="box">
-                        <a href="javascript:;" class="file">选择图片
-                            <input type="file" multiple="multiple" id="inputfile" name="" class="photo">
-                        </a>
-                        <a href="javascript:;" class="file close">重新选择
-                            <input type="buttom" class="photo">
-                        </a>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary pull-right" value="提交" name="submit" id="submit">
+                    <input type="submit" class="btn btn-primary pull-right" value="注册" name="submit" id="submit">
+                    <!-- <label class="remember-me"><input type="checkbox"> I agree with the <a href="terms-and-conditions.html">Terms and Conditions</a></label>-->
                 </div>
                 <div class="clearfix"></div>
             </form>
         </div>
     </div>
+    <p><a href="<?php echo $config['default_php']?>/user/login" style="font-size: 1.2em; margin-top: .25em;">登录</a></p>
 </div>
 
 
 <script src="<?php echo HOST?>/static/jQuery.validate/jquery.validate.js" type="text/javascript"></script>
 <script src="<?php echo HOST?>/static/bootstrap/js/bootstrap.js"></script>
 <script src="<?php echo HOST?>/static/dialog/js/bootstrap-dialog.js" type="text/javascript"></script>
-
-
-<script src="<?php echo HOST?>/static/bootstrap-datetimepicker.min.js"></script>
-
-<script src="<?php echo HOST?>/static/bootstrap-datetimepicker.zh-CN.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function() {
@@ -236,22 +157,45 @@
             errorClass : 'help-block',
 
             rules : {
-
-                phone : "required",
-                activationdate : "required",
-                passport : "required",
-                country : "required",
-                user : "required",
-                name : "required",
-
+                company : "required",
+                username : "required",
+                email : {
+                    required : true,
+                    email : true
+                },
+                password : {
+                    required : true,
+                    isPwd : true
+                },
+                confirm_password : {
+                    required : true,
+                    isPwd : true,
+                    equalTo : "#password"
+                },
+                phone : {
+                    required : true,
+                    isPhone : true
+                }
             },
             messages : {
-                phone : "请输入手机号码",
-                activationdate : "请输入激活日期",
-                passport : "请输入手机号码",
-                country : "请输入国家",
-                user : "请输入姓拼音",
-                name : "请输入名拼音",
+                company : "请输入公司名",
+                username : "请输入用户名",
+                email : {
+                    required : "请输入Email地址",
+                    email : "请输入正确的email地址"
+                },
+                password : {
+                    required : "请输入密码",
+                    minlength : jQuery.format("密码不能小于{0}个字 符")
+                },
+                confirm_password : {
+                    required : "请输入确认密码",
+                    minlength : "确认密码不能小于5个字符",
+                    equalTo : "两次输入密码不一致不一致"
+                },
+                phone : {
+                    required : "请输入手机号码"
+                }
 
             },
             errorPlacement : function(error, element) {
@@ -313,58 +257,6 @@
         $('.demo-cancel-click').click(function(){return false;});
     });
 </script>
-<script type="text/javascript">
-    $("#birthday,#activationdate").datetimepicker({
-        language:  'zh-CN',
-        autoclose: true,
-        todayHighlight: true
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        //响应文件添加成功事件
-        var feedback = $("#feedback");
-        $("#inputfile").change(function(){
-            if (feedback.children('img').length>1) {
-                alert("最多只能选择两张图片");
-                return false;
-            }
-            //创建FormData对象
-            var data = new FormData();
-            //为FormData对象添加数据
-            $.each($('#inputfile')[0].files, function(i, file) {
-                data.append('upload_file'+i, file);
-            });
-            $(".loading").show();    //显示加载图片
-            //发送数据
-            $.ajax({
-                url:'/user/upload', /*去过那个php文件*/
-                type:'POST',  /*提交方式*/
-                data:data,
-                cache: false,
-                contentType: false,        /*不可缺*/
-                processData: false,         /*不可缺*/
-                success:function(data){
-                    data = $(data).html();        /*转格式*/
 
-                    //第一个feedback数据直接append，其他的用before第1个（ .eq(0).before() ）放至最前面。
-                    //data.replace(/&lt;/g,'<').replace(/&gt;/g,'>') 转换html标签，否则图片无法显示。
-                    if($("#feedback").children('img').length == 0)
-                    {
-                        $("#feedback").append(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
-                    }
-                    else{
-                        $("#feedback").children('img').eq(0).before(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
-                    }
-                },
-                error:function(){
-                    alert('上传出错');
-                }
-            });
-        });
-        $(".close").on("click",function(){
-            $("#feedback").empty();
-        });
-    });
-</script>
+
 </body></html>

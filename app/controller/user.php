@@ -39,29 +39,6 @@ class User extends Controller{
 
     }
 
-    public function info(){
-        $ret = isset($_SESSION['userinfo']);
-        if(!$ret){
-            redirect($this->data['config']['default_php'].'/user/login');
-        }
-        $pagesize = 20;
-        $curpage = max($this->request->get('page'),1);
-        $phone = $this->request->get('phone');
-        $where = 'where 1=1';
-        if($phone){
-            $where = " and phone = '$phone'";
-        }
-        $offset = ($curpage-1)*$pagesize;
-        $rs = $this->mysql->query("select * from dp_info $where limit $offset,$pagesize");
-        $count = $this->mysql->query("select count(*) as count from dp_info $where");
-        $this->data['list'] = $rs->rows;
-        $this->data['count'] = $count->row['count'];
-        $this->data['pagination'] = $this->pagination->show($this->data['count'],$pagesize);
-        $this->data['userinfo'] = $this->auth->getLoginInfo();
-        $this->data['phone'] = $phone;
-        $this->data['header'] = $this->load->view('common/header',$this->data);
-        echo $this->load->view('index',$this->data);
-    }
 
     public function register(){
 
@@ -114,39 +91,35 @@ class User extends Controller{
 
     public function ajaxRegister(){
         if($this->request->isPost()){
-            $name = $this->request->post('name');
-            $user = $this->request->post('user');
-            $activationdate 	 = $this->request->post('activationdate');
-            $passport  = $this->request->post('passport');
-            $country  = $this->request->post('country');
-            $birthday = $this->request->post('birthday');
-            $sex   = $this->request->post('sex');
-            $image   = $this->request->post('image');
+            $username = $this->request->post('username');
+            $password = $this->request->post('password');
+            $email = $this->request->post('email');
+            $company = $this->request->post('company');
             $phone = $this->request->post('phone');
-            if($name && $sex && $birthday && $phone && $country && $passport && $activationdate){
-                $data['name'] = trim($name);
-                $data['user'] = trim($user);
-                $data['activationdate'] = $activationdate;
-                $data['passport'] = $passport;
-                $data['country'] = $country;
-                $data['birthday'] = $birthday;
-                $data['sex'] = $sex;
-                $data['image'] = $image;
-                $data['phone'] = $phone;
-                $data['addtime'] = date('Y-m-d H:i:s');
-                //$db = new Db();
-                $rs = DB::getInstance()->insert('dp_info',$data);
-                if($rs){
-                    $msg = "提交成功 <-_-> 正在为你转跳..";
-                    $ref = $this->data['config']['default_php'].'/user/register';
-                    $code = 200;
-                }else{
-                    $msg = "提交失败";
-                    $ref = $this->data['config']['default_php'].'/user/register';
+            if($username && $password && $email && $company && $phone){
+                $ret = $this->passport->getUserInfo($username);
+                if($ret){
+                    $msg = "姓名已经注册过了，请不要重复注册";
+                    $ref = '';
                     $code = -1;
+                }else{
+                    $data['username'] = trim($username);
+                    $data['password'] = md5($password);
+                    $data['email'] = $email;
+                    $data['company'] = $company;
+                    $data['phone'] = $phone;
+                    $rs = $this->passport->addUser($data);
+                    if($rs){
+                        $msg = "注册成功 <-_-> 正在为你转跳..";
+                        $ref = $this->data['config']['default_php'].'/user/login';
+                        $code = 200;
+                    }else{
+                        $msg = "注册失败";
+                        $ref = $this->data['config']['default_php'].'/user/register';
+                        $code = -1;
+                    }
+
                 }
-
-
             }else{
                 $msg = "确实参数";
                 $ref = '';

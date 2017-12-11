@@ -19,10 +19,10 @@ class Passport extends Service{
     }
 
     public function addUser($data = array()){
-        $this->mysql->prepare("insert into dp_staff(username,email,department,password,phone,addtime)values(:username,:email,:department,:password,:phone,:addtime)");
+        $this->mysql->prepare("insert into dp_staff(username,email,password,phone,company,addtime)values(:username,:email,:password,:phone,:company,:addtime)");
+        $this->mysql->bindParam(':company',$data['company']);
         $this->mysql->bindParam(':username',$data['username']);
         $this->mysql->bindParam(':email',$data['email']);
-        $this->mysql->bindParam(':department',$data['department']);
         $this->mysql->bindParam(':password',$data['password']);
         $this->mysql->bindParam(':phone',$data['phone']);
         $this->mysql->bindParam(':addtime',date('Y-m-d H:i:s'));

@@ -18,11 +18,11 @@ class Validate extends Middleware{
         $route = \Core\engine\Router::get();
         $userinfo = $this->auth->isLogin();
         //$adopt = $this->auth->validate('level',$userinfo['id']);
-/*        $adopt = $this->auth->validate($route,$userinfo['id']);
+        $adopt = $this->auth->validate($route,$userinfo['id']);
         if(!$adopt){
             $msg = "Error: 没有权限";
             echo $msg;exit;
-        }*/
+        }
         $this->registry->set('userinfo',$userinfo);
     }
 

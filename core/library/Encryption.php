@@ -2,6 +2,14 @@
 namespace Core\library;
 class Encryption {
 	private $key;
+	private static $instance;
+
+	static function getInstance(){
+		if(!isset(self::$instance)){
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
 
 	public function __construct($key) {
 		$this->key = hash('sha256', $key, true);

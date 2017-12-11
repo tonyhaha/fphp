@@ -29,9 +29,15 @@ class Auth extends Service{
             }
         }
         $list = array(); //有权限的name
+        $des_name = explode('/',$name[0]);
         foreach ($authList as $val) {
-            if (in_array($val, $name))
+            if(strpos($val,$des_name[0]) !== false && strpos($val,'*') !== false){
                 $list[] = $val;
+            }else{
+                if (in_array($val, $name)){
+                    $list[] = $val;
+                }
+            }
         }
         if ($relation=='or' and !empty($list)) {
             return true;
@@ -90,11 +96,11 @@ class Auth extends Service{
                 stream_register_wrapper("annotate", "Stringtophpstream");
                 $condition = include ("annotate://{$command}");
                 if ($condition) {
-                    $authList[] = $r['name'];
+                    $authList[] = $r['rule'];
                 }
             } else {
                 //存在就通过
-                $authList[] = $r['name'];
+                $authList[] = $r['rule'];
             }
         }
         $_authList[$uid] = $authList;
@@ -131,27 +137,39 @@ class Auth extends Service{
             }
 
         }
-            $userinfo['menus'] = $this->getNodes();
-            return $userinfo;
+            //$userinfo['menus'] = $this->getNodes($userinfo['id']);
+        return $userinfo;
     }
 
     public function getLoginInfo(){
         $userinfo = $_SESSION['userinfo'];
-        $userinfo['menus'] = $this->getNodes();
+        $userinfo['menus'] = $this->getNodes($userinfo['id']);
         return $userinfo;
     }
 
-    public function getNodes(){
-
-        $rs = $this->mysql->query("select * from dp_node where status = 1");
-        foreach ($rs->rows as $k => $v) {
-            if($v['role'] != 0) {
-                $rs->rows[$k]['route']  = $this->mysql->query("SELECT * FROM `dp_auth_rule` WHERE `dp_auth_rule`.`id` = ".$v['role'])->row['name'];
-            } else {
-                $rs->rows[$k]['route'] = '';
-            }
+    public function getNodes($uid){
+        $user_nodes = $this->mysql->query("SELECT * FROM `dp_auth_group_access` as a left JOIN dp_auth_group as g on a.group_id = g.id WHERE uid = $uid")->rows;
+        foreach($user_nodes as $v){
+            $tmp[] =  $v['rules'];
         }
-        $datya = \Core\library\Node::channelLevel($rs->rows, 0,"&nbsp", "nid");
-        return $datya;
+        $gid = implode(',',$tmp);
+       if($gid){
+           $rs = $this->mysql->query("select A.* from dp_node as A left join dp_node as B on A.nid = B.pid where A.role in($gid) and A.status = 1 group by A.nid union select B.* from dp_node as A left join dp_node as B on A.nid = B.pid where A.role in($gid) and A.status = 1 group by B.nid ");
+           foreach ($rs->rows as $k => $v) {
+               if($v['role'] != 0) {
+                   $route = $this->mysql->query("SELECT * FROM `dp_auth_rule` WHERE `dp_auth_rule`.`id` = ".$v['role'])->row['name'];
+                   if(!$route){
+                       $route = $v['url'];
+                   }
+                   $rs->rows[$k]['route']  = $route;
+               } else {
+                   $rs->rows[$k]['route'] = '';
+               }
+           }
+
+           $datya = \Core\library\Node::channelLevel($rs->rows, 0,"&nbsp", "nid");
+           return $datya;
+       }
+
     }
 }

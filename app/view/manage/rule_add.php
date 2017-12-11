@@ -20,19 +20,25 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">标题（中文解释）</label>
                         <div class="col-sm-10">
-                        <input type="text"  id="password" class="form-control span12" name="title">
+                        <input type="text"  class="form-control span12" name="title">
                             </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">规则名称（如working/index）</label>
+                        <label class="col-sm-2 control-label">连接</label>
                         <div class="col-sm-10">
-                        <input type="text"  id="confirm_password" class="form-control span12" name="name">
+                            <input type="text" class="form-control span12" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">规则名称（product/*）</label>
+                        <div class="col-sm-10">
+                        <input type="text"   class="form-control span12" name="rule">
                             </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">规则(条件)</label>
                         <div class="col-sm-10">
-                            <input type="text"  id="confirm_password" class="form-control span12" name="condition">
+                            <input type="text" class="form-control span12" name="condition">
                         </div>
                     </div>
                     <div class="form-group">

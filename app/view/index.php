@@ -11,8 +11,8 @@
             <form class="form-inline">
                 <div class="form-group">
                     <div class="input-group">
-                        <div class="input-group-addon">手机号码</div>
-                        <input name="phone" class="form-control span12" type="text" value="<?php echo $phone;?>" style="width: 180px;">
+                        <div class="input-group-addon">标题</div>
+                        <input name="title" class="form-control span12" type="text" value="<?php echo $title;?>" style="width: 180px;">
                     </div>
                 </div>
                <button type="submit" class="btn btn-primary" name="view_type" value="web">搜索</button>
@@ -26,16 +26,12 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>时间</th>
-                            <th>电话号码</th>
-                            <th >激活日期</th>
-                            <th >护照号码</th>
-                            <th >国家</th>
-                            <th >出生年月日</th>
-                            <th >姓拼音</th>
-                            <th >名拼音</th>
-                            <th >性别</th>
-                        <!--    <th width="7%">护照图</th>-->
+                            <th>ID</th>
+                            <th>标题</th>
+                            <th >货号 </th>
+                            <th >价格</th>
+                            <th >条码 </th>
+
                             <th >操作</th>
                         </tr>
                         </thead>
@@ -43,17 +39,13 @@
                         <?php foreach($list as $key=>$val){?>
                         <tr id="data_<?php echo $val["id"] ?>">
 
-                            <td title="<?php echo $val["addtime"] ?>"><?php echo $val['addtime'];?></td>
-                            <td title="<?php echo $val["phone"] ?>"><?php echo $val['phone'];?></td>
-                            <td title="<?php echo $val["activationdate"] ?>"><?php echo $val['activationdate'];?></td>
-                            <td title="<?php echo $val["passport"] ?>"><?php echo $val['passport'];?></td>
-                            <td title="<?php echo $val["country"] ?>"><?php echo $val['country'];?></td>
-                            <td title="<?php echo $val["birthday"] ?>"><?php echo $val['birthday'];?></td>
-                            <td title="<?php echo $val["name"] ?>"><?php echo $val['name'];?></td>
-                            <td title="<?php echo $val["user"] ?>"><?php echo $val['user'];?></td>
-                            <td title="<?php echo $val["sex"] ?>"><?php echo $val['sex'];?></td>
-                  <!--          <td><a href="<?php /*echo $val['image'];*/?>" target="_blank"><img src="<?php /*echo $val['image'];*/?>" width="100"></a></td>-->
-                            <td><a href="javascript:;" url="/user/del?id=<?php echo $val["id"] ?>" class="edit"><span class="label label-danger">删除</span></a></td>
+                            <td title="<?php echo $val["id"] ?>"><?php echo $val['id'];?></td>
+                            <td title="<?php echo $val["title"] ?>"><?php echo $val['title'];?></td>
+
+                            <td title="<?php echo $val["product_ns"] ?>"><?php echo $val['product_ns'];?></td>
+                            <td title="<?php echo $val["price"] ?>"><?php echo $val['price'];?></td>
+                            <td title="<?php echo $val["barcode"] ?>"><?php echo $val['barcode'];?></td>
+                            <td><a href="javascript:;" url="/product/del?id=<?php echo $val["id"] ?>" class="edit"><span class="label label-danger">删除</span></a></td>
                         </tr>
                         <?php }?>
                         </tbody>

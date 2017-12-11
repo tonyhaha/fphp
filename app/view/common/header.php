@@ -100,31 +100,22 @@
 
 <div class="sidebar-nav">
     <ul>
-        <?php if(is_array($userinfo['menus']) && ! empty($userinfo['menus'])): ?>
-            <?php foreach ($userinfo['menus'] as $k => $v): ?>
-                <li><a href="javascript:;" data-target=".dashboard-menu" class="nav-header" data-toggle="collapse">
+        <?php if(is_array($userinfo['menus']) && ! empty($userinfo['menus'])){ ?>
+            <?php foreach ($userinfo['menus'] as $k => $v){ ?>
+                <li><a href="javascript:;" data-target=".dashboard-menu-<?php echo $k;?>" class="nav-header" data-toggle="collapse">
                     <i class="fa fa-fw fa-dashboard"></i> <?php echo $v['title'] ?> <i class="fa fa-collapse"></i></a>
                 </li>
                 <li>
-                    <ul class="dashboard-menu nav nav-list collapse in">
+                    <ul class="dashboard-menu-<?php echo $k;?> nav nav-list collapse in">
                         <?php if(! empty($v['_data'])): ?>
                             <?php foreach ($v['_data'] as $key => $value): ?>
-                                <li><a href="<?php echo $config['default_php']?>/<?php echo $value['route'] ?>"><span class="fa fa-caret-right"></span> <?php echo $value['title'] ?></a></li>
+                                <li><a href="<?php echo $config['default_php']?>/<?php echo $value['url'] ?>"><span class="fa fa-caret-right"></span> <?php echo $value['title'] ?></a></li>
                             <?php endforeach ?>
                         <?php endif; ?>
                     </ul>
                 </li>
 
-            <?php endforeach ?>
-        <?php endif; ?>
-        <?php if($userinfo['level'] == 2){?>
-        <li><a href="#" data-target=".legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-legal"></i> 权限管理<i class="fa fa-collapse"></i></a></li>
-        <li><ul class="legal-menu nav nav-list collapse in" style="height: auto;">
-                <li><a href="<?php echo $config['default_php']?>/manage/member"><span class="fa fa-caret-right"></span> 员工列表</a></li>
-                <li><a href="<?php echo $config['default_php']?>/manage/group"><span class="fa fa-caret-right"></span> 工作组</a></li>
-                <li><a href="<?php echo $config['default_php']?>/manage/rule"><span class="fa fa-caret-right"></span> 规则列表</a></li>
-                <li><a href="<?php echo $config['default_php']?>/manage/menu"><span class="fa fa-caret-right"></span>  菜单管理</a></li>
-            </ul></li>
-        <?php }?>
+            <?php } ?>
+        <?php } ?>
     </ul>
 </div>

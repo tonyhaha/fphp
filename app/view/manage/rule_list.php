@@ -4,6 +4,11 @@
 <div class="content">
     <div class="header">
         <h1 class="page-title">规则列表</h1>
+        <?php if($group_title){?>
+            <ul class="breadcrumb">
+                <h1 class="page-title">正在为《<?php echo $group_title;?>》管理权限</h1>
+            </ul>
+        <?php }?>
     </div>
     <a class="btn btn-primary"  href="<?php echo $config['default_php']?>/manage/add_rule">添加规则</a><br><br>
     <div class="main-content">
@@ -18,7 +23,8 @@
                             <th><input type="checkbox" id="checkAll" value=""/></th>
                             <?php }?>
                             <th>标题</th>
-                            <th>名称</th>
+                            <th>连接</th>
+                            <th>规则</th>
                             <th>条件</th>
                             <th>操作</th>
 
@@ -32,6 +38,7 @@
                             <?php }?>
                             <td><?php echo $val['title'];?></td>
                             <td><?php echo $val['name'];?></td>
+                            <td><?php echo $val['rule'];?></td>
                             <td><?php echo $val['condition'];?></td>
                             <td><a class="btn btn-warning delete" href="javascript:;" id="<?php echo $val['id'];?>" role="button">删除</a></td>
                         </tr>

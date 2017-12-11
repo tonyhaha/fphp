@@ -5,10 +5,10 @@
 <div class="content">
     <div class="header">
         <h1 class="page-title">权限组添加</h1>
-        <ul class="breadcrumb">
+        <!--<ul class="breadcrumb">
             <li><a href="/">Home</a></li>
             <li class="active">权限组添加</li>
-        </ul>
+        </ul>-->
     </div>
     <div class="main-content">
 
