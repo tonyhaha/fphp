@@ -78,7 +78,7 @@
             <li class="dropdown hidden-xs">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-user padding-right-small"
-                          style="position:relative;top: 3px;"></span><?php echo $userinfo['department']?> | <?php echo $userinfo['username']?>
+                          style="position:relative;top: 3px;"></span><?php echo $userinfo['username']?>
                     <i class="fa fa-caret-down"></i>
                 </a>
 
@@ -101,9 +101,9 @@
 <div class="sidebar-nav">
     <ul>
         <?php if(is_array($userinfo['menus']) && ! empty($userinfo['menus'])){ ?>
-            <?php foreach ($userinfo['menus'] as $k => $v){ ?>
+            <?php $i =0;foreach ($userinfo['menus'] as $k => $v){ $i++; ?>
                 <li><a href="javascript:;" data-target=".dashboard-menu-<?php echo $k;?>" class="nav-header" data-toggle="collapse">
-                    <i class="fa fa-fw fa-dashboard"></i> <?php echo $v['title'] ?> <i class="fa fa-collapse"></i></a>
+                    <i class="fa fa-fw <?php echo $config['tools'][$i];?>"></i> <?php echo $v['title'] ?> <i class="fa fa-collapse"></i></a>
                 </li>
                 <li>
                     <ul class="dashboard-menu-<?php echo $k;?> nav nav-list collapse in">

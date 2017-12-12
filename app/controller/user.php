@@ -25,16 +25,16 @@ class User extends Controller{
 
 
     public function index(){
-        redirect($this->data['config']['default_php'].'/user/register');
+        Response::getInstance()->redirect($this->data['config']['default_php'].'/user/register');
     }
 
 
     public function login(){
         $ret = isset($_SESSION['userinfo']);
         if($ret){
-            redirect($this->data['config']['default']);
+            Response::getInstance()->redirect($this->data['config']['default']);
         }
-        echo $this->load->view('login',$this->data);
+        Response::getInstance()->html($this->load->view('login',$this->data));
 
 
     }
@@ -43,7 +43,7 @@ class User extends Controller{
     public function register(){
 
         $this->data['register'] = array();
-        echo $this->load->view('register',$this->data);
+        Response::getInstance()->html($this->load->view('register',$this->data));
 
     }
     public function ajaxLogin(){
@@ -62,7 +62,7 @@ class User extends Controller{
                     } else {
                         $_SESSION['userinfo'] = $ret;
                         $msg = '登录成功 <-_-> 正在为你转跳..';
-                        $ref = '/user/info';
+                        $ref = '/product/index';
                         $code = 200;
                     }
                 } else {
@@ -83,9 +83,9 @@ class User extends Controller{
         }
 
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-            ajax(array('code' => $code, 'msg' => $msg, 'url' => $ref));
+            Response::getInstance()->ajax(array('code' => $code, 'msg' => $msg, 'url' => $ref));
         }else{
-            redirect($ref);
+            Response::getInstance()->redirect($ref);
         }
     }
 
@@ -132,28 +132,12 @@ class User extends Controller{
             $code = -1;
         }
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-            ajax(array('code' => $code, 'msg' => $msg, 'url' => $ref));
+            Response::getInstance()->ajax(array('code' => $code, 'msg' => $msg, 'url' => $ref));
         }else{
-            redirect($ref);
+            Response::getInstance()->redirect($ref);
         }
     }
 
-    public function del(){
-        $id = $this->request->get('id');
-        if($id){
-            $rs = DB::getInstance()->delete('dp_info',array('id'=>$id));
-            if($rs){
-                $msg = "提交成功 <-_-> 正在为你转跳..";
-                $ref = $this->data['config']['default_php'].'/user/info';
-                $code = 200;
-            }else{
-                $msg = "提交失败";
-                $ref = $this->data['config']['default_php'].'/user/info';
-                $code = -1;
-            }
-        }
-        ajax(array('code' => $code, 'msg' => $msg, 'url' => $ref));
-    }
 
     public function ajaxReset(){
         $ret = $this->auth->islogin(true);
@@ -178,7 +162,7 @@ class User extends Controller{
             $ref = '';
             $code = -1;
         }
-        ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+        Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
     }
 
 
@@ -186,7 +170,7 @@ class User extends Controller{
         $ret = $this->auth->islogin();
         $this->data['userinfo'] = $ret;
         $this->data['header'] = $this->load->view('common/header',$this->data);
-        echo $this->load->view('reset',$this->data);
+        Response::getInstance()->html($this->load->view('reset',$this->data));
 
     }
 
@@ -198,11 +182,11 @@ class User extends Controller{
                 $msg = "请你登录后在来操作。";
                 $ref = $this->data['config']['default_php'].'/user/login';
                 $code = -1;
-                ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+                Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
             }else{
                 $msg = '你还没有登录';
                 $ref = $this->data['config']['default_php'].'/user/login';
-                redirect($ref);
+                Response::getInstance()->redirect($ref);
             }
 
         }
@@ -212,7 +196,7 @@ class User extends Controller{
 
     public function outlogin(){
         unset($_SESSION['userinfo']);
-        redirect($this->data['config']['default_php'].'/user/login');
+        Response::getInstance()->redirect($this->data['config']['default_php'].'/user/login');
     }
 
     /**
@@ -221,7 +205,7 @@ class User extends Controller{
      */
     public function findPwd()
     {
-        echo $this->load->view('find/findpassword',$this->data);
+        Response::getInstance()->html($this->load->view('find/findpassword',$this->data));
     }
 
     /**
@@ -233,16 +217,16 @@ class User extends Controller{
         $email = trim($_POST['email']);
         //基本判断
         if (empty($email)) {
-            ajax(array('code'=>-1,'msg'=>"邮箱不能为空 :-(",'url'=>''));
+            Response::getInstance()->ajax(array('code'=>-1,'msg'=>"邮箱不能为空 :-(",'url'=>''));
         }
         //判断邮箱是否合法
         if(! $this->isEmail($email)) {
-            ajax(array('code'=>-1,'msg'=>"邮箱格式不正确",'url'=>''));
+            Response::getInstance()->ajax(array('code'=>-1,'msg'=>"邮箱格式不正确",'url'=>''));
         }
         //判断邮箱是否存在
         $rs = $this->mysql->query("select * from dp_staff where email =:email limit 1",array('email'=>$email));
         if($rs->num_rows == 0) {
-            ajax(array('code'=>-2,'msg'=>"此邮箱还未注册，请注册新用户",'url'=>$this->data['config']['default_php'].'/user/register'));
+            Response::getInstance()->ajax(array('code'=>-2,'msg'=>"此邮箱还未注册，请注册新用户",'url'=>$this->data['config']['default_php'].'/user/register'));
         }
         $pstr = $rs->row["username"]."++".$email."++".time();
         $notify = encode($pstr);
@@ -253,9 +237,9 @@ class User extends Controller{
         );
         $is_success = $this->send($email,$info);
         if($is_success == true){
-            ajax(array('code'=> 1,'msg'=>"邮件发送成功",'url'=>$this->data['config']['default_php'].'/user/success'));
+            Response::getInstance()->ajax(array('code'=> 1,'msg'=>"邮件发送成功",'url'=>$this->data['config']['default_php'].'/user/success'));
         } else {
-            ajax(array('code'=>-1,'msg'=>"邮件发送失败，请重试",'url'=>''));
+            Response::getInstance()->ajax(array('code'=>-1,'msg'=>"邮件发送失败，请重试",'url'=>''));
         }
     }
 
@@ -278,17 +262,17 @@ class User extends Controller{
             $repass = $_POST['repassword'];
             $username = $_POST['username'];
             if($pass !== $repass) {
-                ajax(array('code'=>-1,'msg'=>"两次输入密码不一致,请重试",'url'=>''));
+                Response::getInstance()->ajax(array('code'=>-1,'msg'=>"两次输入密码不一致,请重试",'url'=>''));
             }
             if(0 >= preg_match("/^[a-zA-Z](?=.*[\d]+)(?=.*[a-zA-Z]+)(?=.*[^a-zA-Z0-9]+).{5,11}$/",$pass))
             {
-                ajax(array('code'=>-1,'msg'=>"以字母开头，长度在6-12之间，必须包含数字和特殊字符",'url'=>''));
+                Response::getInstance()->ajax(array('code'=>-1,'msg'=>"以字母开头，长度在6-12之间，必须包含数字和特殊字符",'url'=>''));
             }
             if($pass){
                 $data['username'] = $username;
                 $data['password'] = md5($pass);
                 if(empty($data['username'])) {
-                    ajax(array('code'=>-1,'msg'=>"缺少参数，请联系管理员",'url'=>""));
+                    Response::getInstance()->ajax(array('code'=>-1,'msg'=>"缺少参数，请联系管理员",'url'=>""));
                 }
                 $rs = $this->passport->resetByUsername($data);
                 if($rs){
@@ -306,22 +290,22 @@ class User extends Controller{
                 $ref = '';
                 $code = -1;
             }
-            ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+            Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
         } else {
               $uinfo = $this->request->get('_status');
               if(empty($uinfo))
               {
-                echo "<h1>Notice:</h1><h2>Missing parameter contact administrator </h2>";exit;
+                  Response::getInstance()->html( "<h1>Notice:</h1><h2>Missing parameter contact administrator </h2>");exit;
               }
               list($username,$email,$time) = explode("++",decode($uinfo));
               if(($time+15*60) < time())
               {
-                  echo "<h1>Notice:</h1><h2>Fifteen minutes have passed, the mail has expired, <br> please resend mail or contact administrator </h2>";exit;
+                  Response::getInstance()->html("<h1>Notice:</h1><h2>Fifteen minutes have passed, the mail has expired, <br> please resend mail or contact administrator </h2>");exit;
               }
               else
               {
                  $this->data['userinfo'] = array('username'=>$username);
-                 echo $this->load->view('find/resetpwd',$this->data);
+                  Response::getInstance()->html($this->load->view('find/resetpwd',$this->data));
               }
         }
     }
@@ -412,10 +396,10 @@ class User extends Controller{
     }
 
     public function member(){
-        redirect('/manage/member');
+        Response::getInstance()->redirect('/manage/member');
     }
 
     public function department(){
-        redirect('/manage/member');
+        Response::getInstance()->redirect('/manage/member');
     }
 }

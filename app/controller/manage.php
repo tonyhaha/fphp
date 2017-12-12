@@ -2,6 +2,7 @@
 namespace App\controller;
 
 use Core\engine\Controller;
+use Core\library\Response;
 use Service\Auth;
 use Core\library\db\Db;
 
@@ -58,17 +59,31 @@ class Manage extends Controller{
         $this->data['group_id'] = $group_id;
         $this->data['pagination'] = $this->pagination->show($this->data['count'],$pagesize);
         $this->data['header'] = $this->load->view('common/header',$this->data);
-        echo $this->load->view('manage/member_list',$this->data);
+        Response::getInstance()->html($this->load->view('manage/member_list',$this->data));
     }
 
 
     public function delMember(){
+        $uid = $this->request->get('uid');
+        if($uid){
+           $rs = Db::getInstance()->delete('dp_staff',array('id'=>$uid));
+            if ($rs) {
+                $msg = "操作成功 ! <-_-> ";
+                $ref = $_SERVER['HTTP_REFERER'];
+                $code = 200;
+            } else {
+                $msg = "操作失败";
+                $ref = '';
+                $code = -1;
+            }
 
-    }
-
-
-    public function editMember(){
-
+        }else{
+            $msg = "参数不对";
+            $ref = '';
+            $code = -1;
+        }
+        $data = array('code'=>$code,'msg'=>$msg,'url'=>$ref);
+        Response::getInstance()->ajax($data);
     }
 
     //权限组
@@ -96,7 +111,7 @@ class Manage extends Controller{
         $this->data['uid'] = $uid;
         $this->data['pagination'] = $this->pagination->show($this->data['count'],$pagesize);
         $this->data['header'] = $this->load->view('common/header',$this->data);
-        echo $this->load->view('manage/group_list',$this->data);
+        Response::getInstance()->html($this->load->view('manage/group_list',$this->data));
     }
 
     public function add_group_rules(){
@@ -122,7 +137,7 @@ class Manage extends Controller{
             $ref = '';
             $code = -1;
         }
-        ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+        Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
     }
 
     public function add_group_access(){
@@ -152,7 +167,7 @@ class Manage extends Controller{
             $ref = '';
             $code = -1;
         }
-        ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+        Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
     }
 
     public function add_group(){
@@ -174,17 +189,36 @@ class Manage extends Controller{
                 $ref = '';
                 $code = -1;
             }
-            ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+            Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
         }else{
             $this->data['header'] = $this->load->view('common/header', $this->data);
-            echo $this->load->view('manage/group_add', $this->data);
+            Response::getInstance()->html($this->load->view('manage/group_add', $this->data));
         }
     }
 
 
 
     public function delGroup(){
+        $gid = $this->request->get('gid');
+        if($gid){
+            $rs = Db::getInstance()->delete('dp_auth_group',array('id'=>$gid));
+            if ($rs) {
+                $msg = "操作成功 ! <-_-> ";
+                $ref = $_SERVER['HTTP_REFERER'];
+                $code = 200;
+            } else {
+                $msg = "操作失败";
+                $ref = '';
+                $code = -1;
+            }
 
+        }else{
+            $msg = "参数不对";
+            $ref = '';
+            $code = -1;
+        }
+        $data = array('code'=>$code,'msg'=>$msg,'url'=>$ref);
+        Response::getInstance()->ajax($data);
     }
 
     //规则
@@ -208,7 +242,7 @@ class Manage extends Controller{
         $this->data['count'] = $count->row['count'];
         $this->data['pagination'] = $this->pagination->show($this->data['count'],$pagesize);
         $this->data['header'] = $this->load->view('common/header',$this->data);
-        echo $this->load->view('manage/rule_list',$this->data);
+        Response::getInstance()->html($this->load->view('manage/rule_list',$this->data));
     }
 
     public function del_rule(){
@@ -232,7 +266,7 @@ class Manage extends Controller{
             $ref = '';
             $code = -1;
         }
-        ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+        Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
     }
 
 
@@ -260,10 +294,10 @@ class Manage extends Controller{
                 $ref = '';
                 $code = -1;
             }
-            ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+            Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
         }else{
             $this->data['header'] = $this->load->view('common/header', $this->data);
-            echo $this->load->view('manage/rule_add', $this->data);
+            Response::getInstance()->html($this->load->view('manage/rule_add', $this->data));
         }
 
     }
@@ -272,7 +306,7 @@ class Manage extends Controller{
     public function menu(){
         $this->data['nodes'] = $this->_get_nodes();        
         $this->data['header'] = $this->load->view('common/header', $this->data);
-        echo $this->load->view('manage/menu', $this->data);
+        Response::getInstance()->html($this->load->view('manage/menu', $this->data));
     }
 
     public function menu_add(){
@@ -306,14 +340,14 @@ class Manage extends Controller{
                 $ref = '';
                 $code = -1;
             }
-            ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+            Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
         }else{
             $this->data['nodes'] = $this->_get_nodes();  
             $rs = $this->mysql->query("select * from dp_auth_rule");
             $this->data['list'] = $rs->rows;
             $this->data['nid'] = intval($this->request->get('id')); //默认为一级菜单
             $this->data['header'] = $this->load->view('common/header', $this->data);
-            echo $this->load->view('manage/menu_add', $this->data);
+            Response::getInstance()->html($this->load->view('manage/menu_add', $this->data));
         }
     }
 
@@ -343,7 +377,7 @@ class Manage extends Controller{
                 $ref = '';
                 $code = -1;
             }
-            ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+            Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
         }else{
             $this->data['nodes'] = $this->_get_nodes();  
             $rs = $this->mysql->query("select * from dp_auth_rule");
@@ -351,7 +385,7 @@ class Manage extends Controller{
             $this->data['nid'] = intval($this->request->get('id')); //默认为一级菜单
             $this->data['info'] = $this->mysql->query("SELECT * FROM dp_node WHERE nid = " . $this->data['nid'])->row;
             $this->data['header'] = $this->load->view('common/header', $this->data);
-            echo $this->load->view('manage/menu_edit', $this->data);
+            Response::getInstance()->html($this->load->view('manage/menu_edit', $this->data));
         }
     }
     public function menu_del(){
@@ -379,7 +413,7 @@ class Manage extends Controller{
             $ref = '';
             $code = -1;
         }
-        ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+        Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
     }
 
     private function _get_nodes() {

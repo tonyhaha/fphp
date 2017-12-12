@@ -14,6 +14,7 @@ class Auth extends Service{
 
     public function __construct($registry) {
         parent::__construct($registry);
+        session_start();
 
     }
 
@@ -137,7 +138,7 @@ class Auth extends Service{
             }
 
         }
-            //$userinfo['menus'] = $this->getNodes($userinfo['id']);
+        $userinfo['menus'] = $this->getNodes($userinfo['id']);
         return $userinfo;
     }
 

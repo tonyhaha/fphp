@@ -1,6 +1,7 @@
 <?php
 namespace Core\library;
 
+use Core\engine\Loader;
 
 class Response{
 
@@ -27,6 +28,14 @@ class Response{
     public function html($html){
 
         $this->output($html);
+    }
+
+    public function view($route, $data = array()){
+        $load = new Loader();
+        $header = $load->view('common/header',$data);
+        $data['header'] = $header;
+        $body = $load->view($route,$data);
+        $this->output($body);
     }
 
     public function xml($xml){

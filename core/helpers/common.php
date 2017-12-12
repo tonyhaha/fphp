@@ -1,30 +1,4 @@
 <?php
-if(!function_exists('redirect')){
-    function redirect($url, $status = 302) {
-        header('Location: ' . str_replace(array('&amp;', "\n", "\r"), array('&', '', ''), $url), true, $status);
-        exit();
-    }
-}
-
-if(!function_exists('ajax')){
-    function ajax($data, $type = "JSON")
-    {
-        $type = strtoupper($type);
-        switch ($type) {
-            case "HTML" :
-                $data = htmlspecialchars($data);
-                break;
-            case "TEXT" :
-                $data = $data;
-                break;
-            default :
-                $data = json_encode($data);
-        }
-        echo $data;
-        exit;
-    }
-}
-
 /**
  * 对称加密算法之加密
  * @param String $string 需要加密的字串
@@ -59,7 +33,7 @@ if(!function_exists('decode')){
 
 
 function getStringHash($string, $tab_count)
-{/*{{{*/
+{
     $unsign = sprintf('%u', crc32($string));
     if ($unsign > 2147483647)  // sprintf u for 64 & 32 bit
     {

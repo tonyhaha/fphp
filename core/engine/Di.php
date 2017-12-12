@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yf
- * Date: 2017/2/1
- * Time: 上午12:23
- */
 
+namespace Core\engine;
 
 
 class Di
@@ -72,17 +67,3 @@ class Di
         }
     }
 }
-
-class test{
-    public function __construct($a){
-        $this->a = $a;
-    }
-
-    public function t(){
-        var_dump($this->a);
-    }
-}
-
-Di::getInstance()->set('t','test','a')->get('t')->t();
-//Di::getInstance()->get('t')->t();
-

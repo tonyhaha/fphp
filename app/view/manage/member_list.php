@@ -37,6 +37,7 @@
 
 
                                 <a class="btn btn-default" href="<?php echo $config['default_php']?>/manage/group?uid=<?php echo $val['id']?>" role="button">管理模块</a>
+                                <a href="javascript:;" url="/manage/delMember?uid=<?php echo $val["id"] ?>" class="btn btn-warning delete">删除用户</a>
                             </td>
 
 <?php }?>
@@ -58,6 +59,32 @@
 <script src="<?php echo HOST?>/static/jQuery.validate/jquery.validate.js" type="text/javascript"></script>
 <script src="<?php echo HOST?>/static/bootstrap/js/bootstrap.js"></script>
 <script src="<?php echo HOST?>/static/dialog/js/bootstrap-dialog.js" type="text/javascript"></script>
+<script>
+    $('.delete').click(function(){
+        var u = $(this).attr('url');
+        var msg = '';
+        $.ajax({url:u,
+            type:'GET',
+            dataType:'json',
+            success:function(data){
+                if(data.code == '200'){
+                    msg = '删除成功'
+                }else{
+                    msg = '删除失败'
+                }
+                var dialog = BootstrapDialog.show({
+                    title:"温馨提示",
+                    message: msg
+                });
+                setTimeout(function(){
+                    dialog.close();
+                    if(data.url){
+                        window.location.href = data.url;
+                    }
+                },2000);
 
+            }});
+    })
+</script>
 </body>
 </html>

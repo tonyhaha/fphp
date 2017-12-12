@@ -111,10 +111,11 @@ class Db{
             $fields = implode(',',$fields);
 
         }
-        if(is_array($sqlwhere)){
+        if(is_array($sqlwhere) && count($sqlwhere) > 0){
             $sqlwhere = 'where ' . $this->formatWheresData($sqlwhere);
+        }else{
+            $sqlwhere = '';
         }
-
         if($this->config['type']=='oracle'){
             if($limit){
                 $limit = explode(',',$limit);
@@ -149,6 +150,7 @@ class Db{
             $key = "(`".implode("`,`",array_keys($set))."`)";
             $val  = "('".implode("','",array_values($set))."')";
         }
+       // echo "insert into $table $key VALUES $val";
         $this->query("insert into $table $key VALUES $val");
         $return = $this->pdo->lastInsertId();
         return $return;

@@ -80,7 +80,14 @@ class Mongo{
         'or'=>'or', // id=1 or id=2
         'not'=>'not', // !(id=1)
     );
+    private static $instance;
 
+    static function getInstance(){
+        if(!isset(self::$instance)){
+            self::$instance = new Mongo();
+        }
+        return self::$instance;
+    }
 
     /**
      * 构造函数

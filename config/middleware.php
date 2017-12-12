@@ -1,4 +1,5 @@
 <?php
 return array(
-    'manage/*'=> '\Middleware\Validate'
+    'manage/*'=> '\Middleware\Validate',
+    'product/*'=> '\Middleware\Validate'
 );

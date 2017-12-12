@@ -35,7 +35,7 @@
                             <td><?php echo $val['title'];?></td>
                             <td>
                                 <a class="btn btn-default" href="<?php echo $config['default_php']?>/manage/rule?group_id=<?php echo $val['id']?>" role="button">管理权限</a>
-
+                                <a href="javascript:;" url="/manage/delGroup?gid=<?php echo $val["id"] ?>" class="btn btn-warning delete">删除模块</a>
                         </tr>
                         <?php }?>
                         </tbody>
@@ -96,6 +96,31 @@
 
         })
     });
+    $('.delete').click(function(){
+        var u = $(this).attr('url');
+        var msg = '';
+        $.ajax({url:u,
+            type:'GET',
+            dataType:'json',
+            success:function(data){
+                if(data.code == '200'){
+                    msg = '删除成功'
+                }else{
+                    msg = '删除失败'
+                }
+                var dialog = BootstrapDialog.show({
+                    title:"温馨提示",
+                    message: msg
+                });
+                setTimeout(function(){
+                    dialog.close();
+                    if(data.url){
+                        window.location.href = data.url;
+                    }
+                },2000);
+
+            }});
+    })
 </script>
 </body>
 </html>

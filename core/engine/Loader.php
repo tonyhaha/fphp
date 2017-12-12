@@ -5,10 +5,15 @@ use Core\engine\Router;
 class Loader {
 	protected $registry;
 
-	public function __construct($registry) {
+	public function __construct($registry = null) {
 		$this->registry = $registry;
 	}
-
+	static function getInstance(){
+		if(!isset(self::$instance)){
+			self::$instance = new Loader();
+		}
+		return self::$instance;
+	}
 
 	public function bootstrap($registry){
 		$load = $this->config('load');
