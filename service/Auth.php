@@ -4,6 +4,7 @@ namespace Service;
 
 use Core\engine\Service;
 use Core\library\Node;
+use Core\library\Response;
 
 class Auth extends Service{
     //默认配置
@@ -131,10 +132,10 @@ class Auth extends Service{
                 $msg = "请你登录后在来操作。";
                 $ref = $this->data['config']['default_php'].'/user/login';
                 $code = -1;
-                ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+                Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
             }else{
                 $ref = $this->data['config']['default_php'].'/user/login';
-                redirect($ref);
+                Response::getInstance()->redirect($ref);
             }
 
         }

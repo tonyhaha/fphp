@@ -9,7 +9,6 @@
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo HOST?>/static/font-awesome/css/font-awesome.css">
-
     <link rel="stylesheet" type="text/css" href="<?php echo HOST?>/static/theme.css">
     <link rel="stylesheet" type="text/css" href="<?php echo HOST?>/static/premium.css">
     <link rel="stylesheet" type="text/css" href="<?php echo HOST?>/static/dialog/css/bootstrap-dialog.css">

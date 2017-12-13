@@ -3,10 +3,12 @@ namespace App\controller;
 use Core\engine\Controller;
 use Core\library\db\Db;
 use Core\library\Response;
-class Product extends Controller
+class [[controller_name]] extends Controller
 {
 
     private $data = array();
+
+    private $table = '[[name]]';
 
     public function __construct($registry)
     {
@@ -25,14 +27,14 @@ class Product extends Controller
             $where['title'] = $title;
         }
         $offset = ($curpage - 1) * $pagesize;
-        $list = Db::getInstance()->select("product",'*',$where,'order by id desc', "limit $offset,$pagesize");
-        $count = Db::getInstance()->select("product",'*',$where,'', "",2);
+        $list = Db::getInstance()->select($this->table,'*',$where,'order by id desc', "limit $offset,$pagesize");
+        $count = Db::getInstance()->select($this->table,'*',$where,'', "",2);
         $this->data['list'] = $list;
         $this->data['count'] = $count;
         $this->data['pagination'] = $this->pagination->show($count, $pagesize);
         $this->data['userinfo'] = $this->userinfo;
         $this->data['title'] = $title;
-        Response::getInstance()->view('product/index', $this->data);
+        Response::getInstance()->view($this->table.'/index', $this->data);
     }
 
     public function add(){
@@ -41,7 +43,7 @@ class Product extends Controller
             unset($data['id']);
             unset($data['submit']);
             //var_dump($data);exit;
-            $rs = Db::getInstance()->insert('product',$data);
+            $rs = Db::getInstance()->insert($this->table,$data);
             if ($rs) {
                 $msg = "操作成功 ! <-_-> ";
                 $ref = $_SERVER['HTTP_REFERER'];
@@ -57,14 +59,14 @@ class Product extends Controller
             $this->data['userinfo'] = $this->userinfo;
             $this->data['action'] = 'add';
 
-            Response::getInstance()->view('product/detail', $this->data);
+            Response::getInstance()->view($this->table.'/detail', $this->data);
         }
     }
 
     public function del(){
         $id = $this->request->get('id');
         if($id){
-            $rs = Db::getInstance()->delete('product',array('id'=>$id));
+            $rs = Db::getInstance()->delete($this->table,array('id'=>$id));
             if ($rs) {
                 $msg = "操作成功 ! <-_-> ";
                 $ref = $_SERVER['HTTP_REFERER'];
@@ -90,7 +92,7 @@ class Product extends Controller
             $id = $data['id'];
             unset($data['id']);
             unset($data['submit']);
-            $rs = Db::getInstance()->update('product',$data,array('id'=>$id));
+            $rs = Db::getInstance()->update($this->table,$data,array('id'=>$id));
             if ($rs) {
                 $msg = "操作成功 ! <-_-> ";
                 $ref = $_SERVER['HTTP_REFERER'];
@@ -107,7 +109,7 @@ class Product extends Controller
             $this->data['userinfo'] = $this->userinfo;
             $this->data['info'] = Db::getInstance()->select("product",'*',array('id'=>$id),'', "",1);
             $this->data['action'] = 'edit';
-            Response::getInstance()->view('product/detail', $this->data);
+            Response::getInstance()->view($this->table.'/detail', $this->data);
         }
     }
 }

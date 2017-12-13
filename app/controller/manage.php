@@ -4,6 +4,7 @@ namespace App\controller;
 use Core\engine\Controller;
 use Core\library\Response;
 use Service\Auth;
+use Service\Generation;
 use Core\library\db\Db;
 
 class Manage extends Controller{
@@ -414,6 +415,20 @@ class Manage extends Controller{
             $code = -1;
         }
         Response::getInstance()->ajax(array('code'=>$code,'msg'=>$msg,'url'=>$ref));
+    }
+
+    public function generation(){
+        $table = $this->request->get('table');
+        $generation = new Generation();
+        $generation->generate_controller('trade',true);
+        $generation->generate_detailview('trade',true);
+        $generation->generate_listview('trade',true);
+        echo 'OK';
+    }
+
+    public function formBuilder(){
+        $this->data['userinfo'] = $this->userinfo;
+        Response::getInstance()->view('fb', $this->data);
     }
 
     private function _get_nodes() {

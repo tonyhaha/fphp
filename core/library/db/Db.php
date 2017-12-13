@@ -77,7 +77,6 @@ class Db{
         }
         $rs = $smt->execute();
         if($rs){
-            $smt->setFetchMode(PDO::FETCH_ASSOC);
             return $smt->fetchAll();
         }else{
             return false;
