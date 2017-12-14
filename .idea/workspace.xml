@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ca330fa-ba21-4db2-90b5-71a798251e82" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/view/fb.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/view/formbuilder.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/helpers/controller.src" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/helpers/details_view.src" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/helpers/list_view.src" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/Generation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/fb/bs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/fb/fb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controller/table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/view/createtable.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/manage.php" afterPath="$PROJECT_DIR$/app/controller/manage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/product.php" afterPath="$PROJECT_DIR$/app/controller/product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/common/header.php" afterPath="$PROJECT_DIR$/app/view/common/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/load.php" afterPath="$PROJECT_DIR$/config/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/middleware.php" afterPath="$PROJECT_DIR$/config/middleware.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/library/db/Db.php" afterPath="$PROJECT_DIR$/core/library/db/Db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/Auth.php" afterPath="$PROJECT_DIR$/service/Auth.php" />
     </list>
     <ignored path="php_composer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,61 +31,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="formbuilder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/formbuilder.php">
+      <file leaf-file-name="middleware.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/middleware.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="24" />
+            <state vertical-scroll-proportion="-2.8">
+              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="t.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/t.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/product/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.9666667">
-              <caret line="457" column="25" selection-start-line="457" selection-start-column="25" selection-end-line="473" selection-end-column="38" />
-              <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#3;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-11.9">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fb.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/fb/fb.js">
+      <file leaf-file-name="createtable.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/createtable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="281" column="0" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.45298165">
+              <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
               <folding>
-                <element signature="e#12662#12711#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fb.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/view/fb.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5546318">
-              <caret line="251" column="96" selection-start-line="251" selection-start-column="96" selection-end-line="251" selection-end-column="96" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bs.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/fb/bs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="22220" selection-start-line="5" selection-start-column="22220" selection-end-line="5" selection-end-column="22220" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#22341#22390#0" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#2;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,53 +72,52 @@
       <file leaf-file-name="manage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/manage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.266666">
-              <caret line="430" column="41" selection-start-line="430" selection-start-column="41" selection-end-line="430" selection-end-column="41" />
+            <state vertical-scroll-proportion="-4.2">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="23" />
               <folding>
-                <element signature="e#33#60#0#PHP" expanded="true" />
-                <marker date="1513152781582" expanded="true" signature="867:904" placeholder="select * fro..dp_staff..." />
-                <marker date="1513152781582" expanded="true" signature="1331:1375" placeholder="select title..dp_auth_group..." />
-                <marker date="1513152781582" expanded="true" signature="1331:1380" placeholder="select title..dp_auth_group..." />
-                <marker date="1513152781582" expanded="true" signature="1819:1857" placeholder="select count..." />
-                <marker date="1513152781582" expanded="true" signature="3647:3689" placeholder="select * fro..dp_auth_group..." />
-                <marker date="1513152781582" expanded="true" signature="3740:3783" placeholder="select count..." />
-                <marker date="1513152781582" expanded="true" signature="4394:4454" placeholder="UPDATE `dp_a..." />
-                <marker date="1513152781582" expanded="true" signature="5449:5521" placeholder="insert into dp_auth_group_access..." />
-                <marker date="1513152781582" expanded="true" signature="6270:6335" placeholder="insert into dp_auth_group..." />
-                <marker date="1513152781582" expanded="true" signature="8234:8275" placeholder="select * fro..dp_auth_rule..." />
-                <marker date="1513152781582" expanded="true" signature="8326:8368" placeholder="select count..." />
-                <marker date="1513152781582" expanded="true" signature="8437:8478" placeholder="SELECT * FRO..dp_auth_group..." />
-                <marker date="1513152781582" expanded="true" signature="9104:9162" placeholder="DELETE FROM ..." />
-                <marker date="1513152781582" expanded="true" signature="10061:10174" placeholder="insert into dp_auth_rule..." />
-                <marker date="1513152781582" expanded="true" signature="12038:12129" placeholder="insert into dp_node..." />
-                <marker date="1513152781582" expanded="true" signature="12917:12943" placeholder="select * fro..dp_auth_rule..." />
-                <marker date="1513152781582" expanded="true" signature="13433:13684" placeholder="..." />
-                <marker date="1513152781582" expanded="true" signature="13523:13645" placeholder="UPDATE `dp_n..." />
-                <marker date="1513152781582" expanded="true" signature="14505:14531" placeholder="select * fro..dp_auth_rule..." />
-                <marker date="1513152781582" expanded="true" signature="14713:14747" placeholder="SELECT * FRO..dp_node..." />
-                <marker date="1513152781582" expanded="true" signature="15107:15141" placeholder="SELECT * FRO..dp_node..." />
-                <marker date="1513152781582" expanded="true" signature="15320:15370" placeholder="DELETE FROM ..." />
-                <marker date="1513152781582" expanded="true" signature="16438:16476" placeholder="select * fro..dp_node..." />
+                <marker date="1513217166736" expanded="true" signature="867:904" placeholder="select * fro..dp_staff..." />
+                <marker date="1513217166736" expanded="true" signature="1331:1375" placeholder="select title..dp_auth_group..." />
+                <marker date="1513217166736" expanded="true" signature="1331:1380" placeholder="select title..dp_auth_group..." />
+                <marker date="1513217166736" expanded="true" signature="1819:1857" placeholder="select count..." />
+                <marker date="1513217166736" expanded="true" signature="3647:3689" placeholder="select * fro..dp_auth_group..." />
+                <marker date="1513217166736" expanded="true" signature="3740:3783" placeholder="select count..." />
+                <marker date="1513217166736" expanded="true" signature="4394:4454" placeholder="UPDATE `dp_a..." />
+                <marker date="1513217166736" expanded="true" signature="5449:5521" placeholder="insert into dp_auth_group_access..." />
+                <marker date="1513217166736" expanded="true" signature="6270:6335" placeholder="insert into dp_auth_group..." />
+                <marker date="1513217166736" expanded="true" signature="8234:8275" placeholder="select * fro..dp_auth_rule..." />
+                <marker date="1513217166736" expanded="true" signature="8326:8368" placeholder="select count..." />
+                <marker date="1513217166736" expanded="true" signature="8437:8478" placeholder="SELECT * FRO..dp_auth_group..." />
+                <marker date="1513217166736" expanded="true" signature="9104:9162" placeholder="DELETE FROM ..." />
+                <marker date="1513217166736" expanded="true" signature="10061:10174" placeholder="insert into dp_auth_rule..." />
+                <marker date="1513217166736" expanded="true" signature="12038:12129" placeholder="insert into dp_node..." />
+                <marker date="1513217166736" expanded="true" signature="12917:12943" placeholder="select * fro..dp_auth_rule..." />
+                <marker date="1513217166736" expanded="true" signature="13433:13684" placeholder="..." />
+                <marker date="1513217166736" expanded="true" signature="13523:13645" placeholder="UPDATE `dp_n..." />
+                <marker date="1513217166736" expanded="true" signature="14505:14531" placeholder="select * fro..dp_auth_rule..." />
+                <marker date="1513217166736" expanded="true" signature="14713:14747" placeholder="SELECT * FRO..dp_node..." />
+                <marker date="1513217166736" expanded="true" signature="15107:15141" placeholder="SELECT * FRO..dp_node..." />
+                <marker date="1513217166736" expanded="true" signature="15320:15370" placeholder="DELETE FROM ..." />
+                <marker date="1513217166736" expanded="true" signature="16439:16477" placeholder="select * fro..dp_node..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/common/header.php">
+      <file leaf-file-name="menu_add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/manage/menu_add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.3">
-              <caret line="9" column="57" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="57" />
+            <state vertical-scroll-proportion="-15.1">
+              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="93" selection-end-column="101" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap-responsive.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/fb/bootstrap-responsive.css">
+      <file leaf-file-name="fb.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/fb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.206898">
-              <caret line="100" column="25" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="25" />
+            <state vertical-scroll-proportion="160.63333">
+              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -155,9 +126,56 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.5">
-              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="106" />
+            <state vertical-scroll-proportion="-10.866667">
+              <caret line="109" column="74" selection-start-line="109" selection-start-column="74" selection-end-line="109" selection-end-column="74" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-23.466667">
+              <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+              <folding>
+                <element signature="e#32#59#0#PHP" expanded="true" />
+                <marker date="1513229118281" expanded="true" signature="1510:1664" placeholder="create table..tutorials_tbl..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Db.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/library/db/Db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.666667">
+              <caret line="151" column="9" selection-start-line="151" selection-start-column="9" selection-end-line="151" selection-end-column="9" />
+              <folding>
+                <marker date="1513222999172" expanded="true" signature="3173:3279" placeholder="select * fro..rownum..." />
+                <marker date="1513222999172" expanded="true" signature="3188:3238" placeholder="select rownu..${$table}..." />
+                <marker date="1513222999172" expanded="true" signature="3343:3380" placeholder="select ${$fi..${$table}..." />
+                <marker date="1513222999172" expanded="true" signature="3542:3570" placeholder="select count..${$table}..." />
+                <marker date="1513222999172" expanded="true" signature="3691:3737" placeholder="select ${$fi..${$table}..." />
+                <marker date="1513222999172" expanded="true" signature="3826:3872" placeholder="select ${$fi..${$table}..." />
+                <marker date="1513222999172" expanded="true" signature="4354:4385" placeholder="insert into ${$table}..." />
+                <marker date="1513222999172" expanded="true" signature="4414:4445" placeholder="insert into ${$table}..." />
+                <marker date="1513222999172" expanded="true" signature="5015:5039" placeholder="update ${$ta..." />
+                <marker date="1513222999172" expanded="true" signature="5315:5334" placeholder="delete from ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.1">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="54" selection-end-column="49" />
+              <folding>
+                <element signature="e#32#59#0#PHP" expanded="true" />
+                <marker date="1513065617610" expanded="true" signature="663:717" placeholder="select * fro..dp_product..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -177,9 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/view/common/footer.php" />
-        <option value="$PROJECT_DIR$/app/view/manage/menu.php" />
-        <option value="$PROJECT_DIR$/core/library/Encryption.php" />
         <option value="$PROJECT_DIR$/core/library/Sort.php" />
         <option value="$PROJECT_DIR$/core/library/Random.php" />
         <option value="$PROJECT_DIR$/core/library/File.php" />
@@ -187,7 +202,6 @@
         <option value="$PROJECT_DIR$/service/Passport.php" />
         <option value="$PROJECT_DIR$/app/view/manage/group_add.php" />
         <option value="$PROJECT_DIR$/app/view/index.php" />
-        <option value="$PROJECT_DIR$/config/load.php" />
         <option value="$PROJECT_DIR$/app/view/manage/rule_add.php" />
         <option value="$PROJECT_DIR$/app/view/manage/menu_add.php" />
         <option value="$PROJECT_DIR$/app/view/manage/menu_edit.php" />
@@ -198,7 +212,6 @@
         <option value="$PROJECT_DIR$/core/helpers/common.php" />
         <option value="$PROJECT_DIR$/core/library/db/Mongo.php" />
         <option value="$PROJECT_DIR$/core/engine/Di.php" />
-        <option value="$PROJECT_DIR$/config/middleware.php" />
         <option value="$PROJECT_DIR$/middleware/Validate.php" />
         <option value="$PROJECT_DIR$/app/controller/user.php" />
         <option value="$PROJECT_DIR$/core/engine/Loader.php" />
@@ -206,7 +219,6 @@
         <option value="$PROJECT_DIR$/app/view/product/index.php" />
         <option value="$PROJECT_DIR$/core/helpers/sql.php" />
         <option value="$PROJECT_DIR$/app/controller/product.php" />
-        <option value="$PROJECT_DIR$/core/library/db/Db.php" />
         <option value="$PROJECT_DIR$/core/helpers/details_view.src" />
         <option value="$PROJECT_DIR$/core/helpers/list_view.src" />
         <option value="$PROJECT_DIR$/app/controller/trade.php" />
@@ -218,7 +230,6 @@
         <option value="$PROJECT_DIR$/app/view/formBuilder.php" />
         <option value="$PROJECT_DIR$/static/FormBuilder/assets/css/custom.css" />
         <option value="$PROJECT_DIR$/app/view/formbuilder.php" />
-        <option value="$PROJECT_DIR$/app/controller/manage.php" />
         <option value="$PROJECT_DIR$/static/FormBuilder/assets/js/main.js" />
         <option value="$PROJECT_DIR$/static/FormBuilder/assets/js/app.js" />
         <option value="$PROJECT_DIR$/static/fb/fb.js" />
@@ -228,6 +239,13 @@
         <option value="$PROJECT_DIR$/static/fb/bootstrap-responsive.css" />
         <option value="$PROJECT_DIR$/static/fb/bs.js" />
         <option value="$PROJECT_DIR$/app/view/fb.php" />
+        <option value="$PROJECT_DIR$/sql.php" />
+        <option value="$PROJECT_DIR$/app/controller/manage.php" />
+        <option value="$PROJECT_DIR$/config/middleware.php" />
+        <option value="$PROJECT_DIR$/config/load.php" />
+        <option value="$PROJECT_DIR$/core/library/db/Db.php" />
+        <option value="$PROJECT_DIR$/app/controller/table.php" />
+        <option value="$PROJECT_DIR$/app/view/createtable.php" />
       </list>
     </option>
   </component>
@@ -313,38 +331,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -359,7 +345,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="middleware" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -421,7 +407,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
+              <option name="myItemId" value="manage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -457,11 +443,11 @@
       <recent name="C:\php_composer\vendor" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\admin\static\fb" />
+      <recent name="C:\admin\app\controller" />
       <recent name="C:\admin\app\view" />
+      <recent name="C:\admin\static\fb" />
       <recent name="C:\admin\static" />
       <recent name="C:\admin\core\helpers" />
-      <recent name="C:\admin\core\engine" />
     </key>
   </component>
   <component name="RunManager">
@@ -588,14 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/middleware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/library/Request.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.8">
@@ -668,37 +646,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/library/db/Db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.166666">
-          <caret line="78" column="16" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
-          <folding>
-            <marker date="1513132766645" expanded="true" signature="3227:3333" placeholder="select * fro..rownum..." />
-            <marker date="1513132766645" expanded="true" signature="3242:3292" placeholder="select rownu..${$table}..." />
-            <marker date="1513132766645" expanded="true" signature="3397:3434" placeholder="select ${$fi..${$table}..." />
-            <marker date="1513132766645" expanded="true" signature="3596:3624" placeholder="select count..${$table}..." />
-            <marker date="1513132766645" expanded="true" signature="3745:3791" placeholder="select ${$fi..${$table}..." />
-            <marker date="1513132766645" expanded="true" signature="3880:3926" placeholder="select ${$fi..${$table}..." />
-            <marker date="1513132766645" expanded="true" signature="4408:4439" placeholder="insert into ${$table}..." />
-            <marker date="1513132766645" expanded="true" signature="4468:4499" placeholder="insert into ${$table}..." />
-            <marker date="1513132766645" expanded="true" signature="5069:5093" placeholder="update ${$ta..." />
-            <marker date="1513132766645" expanded="true" signature="5369:5388" placeholder="delete from ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/manage/rule_add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.8">
           <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/manage/menu_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.1">
-          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="54" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -779,32 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/product/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.666667">
-          <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
-          <folding>
-            <element signature="e#27#51#0#PHP" expanded="true" />
-            <marker date="1513150287557" expanded="true" signature="1560:1686" placeholder="select * fro..dp_auth_group_access..." />
-            <marker date="1513150287557" expanded="true" signature="2575:2634" placeholder="select * fro..dp_auth_rule..." />
-            <marker date="1513150287557" expanded="true" signature="3812:3850" placeholder="select * fro..dp_staff..." />
-            <marker date="1513150287557" expanded="true" signature="4917:5021" placeholder="SELECT * FRO..dp_auth_group_access..." />
-            <marker date="1513150287557" expanded="true" signature="5205:5327" placeholder="select A.* f..dp_node..." />
-            <marker date="1513150287557" expanded="true" signature="5205:5456" placeholder="select A.* f..." />
-            <marker date="1513150287557" expanded="true" signature="5334:5456" placeholder="select B.* f..dp_node..." />
-            <marker date="1513150287557" expanded="true" signature="5592:5649" placeholder="SELECT * FRO..dp_auth_rule..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/library/Response.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.466666">
@@ -821,63 +746,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.666666">
-          <caret line="106" column="11" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="54" />
-          <folding>
-            <element signature="e#32#59#0#PHP" expanded="true" />
-            <marker date="1513065617610" expanded="true" signature="663:717" placeholder="select * fro..dp_product..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/product/detail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.5">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/manage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.266666">
-          <caret line="430" column="41" selection-start-line="430" selection-start-column="41" selection-end-line="430" selection-end-column="41" />
-          <folding>
-            <element signature="e#33#60#0#PHP" expanded="true" />
-            <marker date="1513152781582" expanded="true" signature="867:904" placeholder="select * fro..dp_staff..." />
-            <marker date="1513152781582" expanded="true" signature="1331:1375" placeholder="select title..dp_auth_group..." />
-            <marker date="1513152781582" expanded="true" signature="1331:1380" placeholder="select title..dp_auth_group..." />
-            <marker date="1513152781582" expanded="true" signature="1819:1857" placeholder="select count..." />
-            <marker date="1513152781582" expanded="true" signature="3647:3689" placeholder="select * fro..dp_auth_group..." />
-            <marker date="1513152781582" expanded="true" signature="3740:3783" placeholder="select count..." />
-            <marker date="1513152781582" expanded="true" signature="4394:4454" placeholder="UPDATE `dp_a..." />
-            <marker date="1513152781582" expanded="true" signature="5449:5521" placeholder="insert into dp_auth_group_access..." />
-            <marker date="1513152781582" expanded="true" signature="6270:6335" placeholder="insert into dp_auth_group..." />
-            <marker date="1513152781582" expanded="true" signature="8234:8275" placeholder="select * fro..dp_auth_rule..." />
-            <marker date="1513152781582" expanded="true" signature="8326:8368" placeholder="select count..." />
-            <marker date="1513152781582" expanded="true" signature="8437:8478" placeholder="SELECT * FRO..dp_auth_group..." />
-            <marker date="1513152781582" expanded="true" signature="9104:9162" placeholder="DELETE FROM ..." />
-            <marker date="1513152781582" expanded="true" signature="10061:10174" placeholder="insert into dp_auth_rule..." />
-            <marker date="1513152781582" expanded="true" signature="12038:12129" placeholder="insert into dp_node..." />
-            <marker date="1513152781582" expanded="true" signature="12917:12943" placeholder="select * fro..dp_auth_rule..." />
-            <marker date="1513152781582" expanded="true" signature="13433:13684" placeholder="..." />
-            <marker date="1513152781582" expanded="true" signature="13523:13645" placeholder="UPDATE `dp_n..." />
-            <marker date="1513152781582" expanded="true" signature="14505:14531" placeholder="select * fro..dp_auth_rule..." />
-            <marker date="1513152781582" expanded="true" signature="14713:14747" placeholder="SELECT * FRO..dp_node..." />
-            <marker date="1513152781582" expanded="true" signature="15107:15141" placeholder="SELECT * FRO..dp_node..." />
-            <marker date="1513152781582" expanded="true" signature="15320:15370" placeholder="DELETE FROM ..." />
-            <marker date="1513152781582" expanded="true" signature="16438:16476" placeholder="select * fro..dp_node..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -930,19 +803,196 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.9666667">
           <caret line="457" column="25" selection-start-line="457" selection-start-column="25" selection-end-line="473" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#3;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#15879#15911#0#HTML" expanded="true" />
+            <element signature="e#16156#16188#0#HTML" expanded="true" />
+            <element signature="e#16301#16320#0#HTML" expanded="true" />
+            <element signature="e#16414#16433#0#HTML" expanded="true" />
+            <element signature="e#16809#16836#0#HTML" expanded="true" />
+            <element signature="e#17240#17309#0#HTML" expanded="true" />
+            <element signature="e#17970#17994#0#HTML" expanded="true" />
+            <element signature="e#18075#18096#0#HTML" expanded="true" />
+            <element signature="e#18456#18475#0#HTML" expanded="true" />
+            <marker date="1513215778994" expanded="true" signature="1983:1997" placeholder="..." />
+            <marker date="1513215778994" expanded="false" signature="4680:4699" placeholder="..." />
+            <marker date="1513215778994" expanded="true" signature="4700:4838" placeholder="..." />
+            <marker date="1513215778994" expanded="true" signature="27077:27098" placeholder="select * fro..${$t[0]}..." />
+            <marker date="1513215778994" expanded="true" signature="28476:28501" placeholder="DROP TABLE I..." />
+            <marker date="1513215778994" expanded="true" signature="28652:28670" placeholder="select * fro..${$t}..." />
+            <marker date="1513215778994" expanded="true" signature="28927:28951" placeholder="INSERT INTO `${$t}`..." />
+            <marker date="1513215778994" expanded="true" signature="29024:29048" placeholder="INSERT INTO `${$t}`..." />
+            <marker date="1513215778994" expanded="true" signature="36108:36154" placeholder="select count..${$sql}..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
+          <folding>
+            <element signature="e#27#51#0#PHP" expanded="true" />
+            <marker date="1513150287557" expanded="true" signature="1560:1686" placeholder="select * fro..dp_auth_group_access..." />
+            <marker date="1513150287557" expanded="true" signature="2575:2634" placeholder="select * fro..dp_auth_rule..." />
+            <marker date="1513150287557" expanded="true" signature="3812:3850" placeholder="select * fro..dp_staff..." />
+            <marker date="1513150287557" expanded="true" signature="4917:5021" placeholder="SELECT * FRO..dp_auth_group_access..." />
+            <marker date="1513150287557" expanded="true" signature="5205:5327" placeholder="select A.* f..dp_node..." />
+            <marker date="1513150287557" expanded="true" signature="5205:5456" placeholder="select A.* f..." />
+            <marker date="1513150287557" expanded="true" signature="5334:5456" placeholder="select B.* f..dp_node..." />
+            <marker date="1513150287557" expanded="true" signature="5592:5649" placeholder="SELECT * FRO..dp_auth_rule..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/load.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.5">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/fb.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5546318">
-          <caret line="251" column="96" selection-start-line="251" selection-start-column="96" selection-end-line="251" selection-end-column="96" />
+        <state vertical-scroll-proportion="160.63333">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.866667">
+          <caret line="109" column="74" selection-start-line="109" selection-start-column="74" selection-end-line="109" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.1">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="54" selection-end-column="49" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#32#59#0#PHP" expanded="true" />
+            <marker date="1513065617610" expanded="true" signature="663:717" placeholder="select * fro..dp_product..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/manage/menu_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.1">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="93" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/library/db/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.666667">
+          <caret line="151" column="9" selection-start-line="151" selection-start-column="9" selection-end-line="151" selection-end-column="9" />
+          <folding>
+            <marker date="1513222999172" expanded="true" signature="3173:3279" placeholder="select * fro..rownum..." />
+            <marker date="1513222999172" expanded="true" signature="3188:3238" placeholder="select rownu..${$table}..." />
+            <marker date="1513222999172" expanded="true" signature="3343:3380" placeholder="select ${$fi..${$table}..." />
+            <marker date="1513222999172" expanded="true" signature="3542:3570" placeholder="select count..${$table}..." />
+            <marker date="1513222999172" expanded="true" signature="3691:3737" placeholder="select ${$fi..${$table}..." />
+            <marker date="1513222999172" expanded="true" signature="3826:3872" placeholder="select ${$fi..${$table}..." />
+            <marker date="1513222999172" expanded="true" signature="4354:4385" placeholder="insert into ${$table}..." />
+            <marker date="1513222999172" expanded="true" signature="4414:4445" placeholder="insert into ${$table}..." />
+            <marker date="1513222999172" expanded="true" signature="5015:5039" placeholder="update ${$ta..." />
+            <marker date="1513222999172" expanded="true" signature="5315:5334" placeholder="delete from ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/manage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <marker date="1513217166736" expanded="true" signature="867:904" placeholder="select * fro..dp_staff..." />
+            <marker date="1513217166736" expanded="true" signature="1331:1375" placeholder="select title..dp_auth_group..." />
+            <marker date="1513217166736" expanded="true" signature="1331:1380" placeholder="select title..dp_auth_group..." />
+            <marker date="1513217166736" expanded="true" signature="1819:1857" placeholder="select count..." />
+            <marker date="1513217166736" expanded="true" signature="3647:3689" placeholder="select * fro..dp_auth_group..." />
+            <marker date="1513217166736" expanded="true" signature="3740:3783" placeholder="select count..." />
+            <marker date="1513217166736" expanded="true" signature="4394:4454" placeholder="UPDATE `dp_a..." />
+            <marker date="1513217166736" expanded="true" signature="5449:5521" placeholder="insert into dp_auth_group_access..." />
+            <marker date="1513217166736" expanded="true" signature="6270:6335" placeholder="insert into dp_auth_group..." />
+            <marker date="1513217166736" expanded="true" signature="8234:8275" placeholder="select * fro..dp_auth_rule..." />
+            <marker date="1513217166736" expanded="true" signature="8326:8368" placeholder="select count..." />
+            <marker date="1513217166736" expanded="true" signature="8437:8478" placeholder="SELECT * FRO..dp_auth_group..." />
+            <marker date="1513217166736" expanded="true" signature="9104:9162" placeholder="DELETE FROM ..." />
+            <marker date="1513217166736" expanded="true" signature="10061:10174" placeholder="insert into dp_auth_rule..." />
+            <marker date="1513217166736" expanded="true" signature="12038:12129" placeholder="insert into dp_node..." />
+            <marker date="1513217166736" expanded="true" signature="12917:12943" placeholder="select * fro..dp_auth_rule..." />
+            <marker date="1513217166736" expanded="true" signature="13433:13684" placeholder="..." />
+            <marker date="1513217166736" expanded="true" signature="13523:13645" placeholder="UPDATE `dp_n..." />
+            <marker date="1513217166736" expanded="true" signature="14505:14531" placeholder="select * fro..dp_auth_rule..." />
+            <marker date="1513217166736" expanded="true" signature="14713:14747" placeholder="SELECT * FRO..dp_node..." />
+            <marker date="1513217166736" expanded="true" signature="15107:15141" placeholder="SELECT * FRO..dp_node..." />
+            <marker date="1513217166736" expanded="true" signature="15320:15370" placeholder="DELETE FROM ..." />
+            <marker date="1513217166736" expanded="true" signature="16439:16477" placeholder="select * fro..dp_node..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.466667">
+          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+          <folding>
+            <element signature="e#32#59#0#PHP" expanded="true" />
+            <marker date="1513229118281" expanded="true" signature="1510:1664" placeholder="create table..tutorials_tbl..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/product/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.9">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/middleware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/createtable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45298165">
+          <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

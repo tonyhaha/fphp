@@ -57,14 +57,14 @@ class Db{
     }
 
     //主要是针对没有结果集合返回的操作，比如INSERT、UPDATE、DELETE等操作
-    public function exec($sql,$return=false){
+    public function exec($sql,$return=true){
         $res = $this->pdo->exec($sql);
         if($res){
             $this->res = $res;
         }
-        if($return){//返回操作是否成功 成功返回1 失败0
-            return $res;
-        }
+
+        return $res;
+
     }
 
     //绑定参数操作

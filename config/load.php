@@ -13,6 +13,12 @@ return array(
         'db'=>   'Core\library\db\Db',
         'pagination'=>'Core\library\Pagination'
     ),
+    'table'=>array(
+        'request'=>'Core\library\Request',
+        'mysql'=>   'Core\library\db\Mysql',
+        'db'=>   'Core\library\db\Db',
+        'pagination'=>'Core\library\Pagination'
+    ),
     'manage'=>array(
         'request'=>'Core\library\Request',
         'mysql'=>   'Core\library\db\Mysql',

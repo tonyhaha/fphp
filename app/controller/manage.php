@@ -431,6 +431,7 @@ class Manage extends Controller{
         Response::getInstance()->view('fb', $this->data);
     }
 
+
     private function _get_nodes() {
         $rs = $this->mysql->query("select * from dp_node where status = 1");
         $datya = \Core\library\Node::tree($rs->rows, "title", "nid", "pid");
