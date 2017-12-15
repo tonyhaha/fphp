@@ -16,6 +16,9 @@
                     <div class="input-group">
                         <div class="input-group-addon">数据标题</div>
                         <input name="title" class="form-control span12" type="text" value="" style="width: 150px;">
+                        </div>
+                    <br>
+                    <div class="input-group">
                         <div class="input-group-addon">数据表名</div>
                         <input name="table" class="form-control span12" type="text" value="" style="width: 150px;">
 
@@ -25,6 +28,8 @@
                     <div class="input-group">
                         <div class="input-group-addon">字段名</div>
                         <input name="name[]" class="form-control span12" type="text" value="" style="width: 150px;">
+                        <div class="input-group-addon">字段标题</div>
+                        <input name="comment[]" class="form-control span12" type="text" value="" style="width: 150px;">
                         <div class="input-group-addon">数据类型</div>
                         <select class="form-control" name="type[]" style="width: 150px;">
                                 <option value="varchar">文本</option>
@@ -83,28 +88,28 @@
             errorElement : 'span',
             errorClass : 'help-block',
             rules : {
-                table : "required",
                 title : "required",
+                table : "required",
+
 
             },
             messages : {
-                table : "请输入表名",
                 title : "请输入数据标题",
-
+                table : "请输入表名",
             },
             errorPlacement : function(error, element) {
                 element.next().remove();
-                element.after('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+                //element.after('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
                 element.closest('.form-group').append(error);
             },
             highlight : function(element) {
                 $(element).closest('.form-group').addClass('has-error has-feedback');
             },
             success : function(label) {
-                var el=label.closest('.form-group').find("input");
+                var el=label.closest(this).find("input");
                 el.next().remove();
-                el.after('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
-                label.closest('.form-group').removeClass('has-error').addClass("has-feedback has-success");
+                el.append('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
+                label.closest(label).removeClass('has-error').addClass("has-feedback has-success");
                 label.remove();
             },
             submitHandler: function(form) {

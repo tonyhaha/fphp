@@ -5,6 +5,7 @@ namespace Service;
 use Core\engine\Service;
 use Core\library\Node;
 use Core\library\Response;
+use Core\library\db\Db;
 
 class Auth extends Service{
     //默认配置
@@ -57,8 +58,7 @@ class Auth extends Service{
             return $groups[$uid];
         }
         $sql = "select * from dp_auth_group_access as a join dp_auth_group as g on a.group_id = g.id where a.uid = :uid and g.status = :status";
-        $rs = $this->mysql->query($sql,array('uid'=>$uid,'status'=>1));
-        $user_groups = $rs->rows;
+        $user_groups = Db::getInstance()->execute($sql,array('uid'=>$uid,'status'=>1));
         $groups[$uid] = $user_groups?$user_groups:array();
         return $groups[$uid];
     }
@@ -84,8 +84,7 @@ class Auth extends Service{
             return array();
         }
         $sql = "select * from dp_auth_rule where id in($ids) and status = 1";
-        $rs = $this->mysql->query($sql);
-        $rules = $rs->rows;
+        $rules = Db::getInstance()->execute($sql);
         //循环规则，判断结果。
         $authList = array();
         foreach ($rules as $r) {
@@ -118,8 +117,8 @@ class Auth extends Service{
         $userinfo = array();
         if(!isset($userinfo[$uid])){
             $sql = "select * from dp_staff where id = :uid";
-            $rs = $this->mysql->query($sql,array('uid'=>$uid));
-            $userinfo[$uid] = $rs->row;
+            $rs = Db::getInstance()->execute($sql,array('uid'=>$uid));
+            $userinfo[$uid] = $rs;
         }
         return $userinfo[$uid];
     }
@@ -150,26 +149,27 @@ class Auth extends Service{
     }
 
     public function getNodes($uid){
-        $user_nodes = $this->mysql->query("SELECT * FROM `dp_auth_group_access` as a left JOIN dp_auth_group as g on a.group_id = g.id WHERE uid = $uid")->rows;
+        $user_nodes = Db::getInstance()->execute("SELECT * FROM `dp_auth_group_access` as a left JOIN dp_auth_group as g on a.group_id = g.id WHERE uid = $uid");
         foreach($user_nodes as $v){
             $tmp[] =  $v['rules'];
         }
         $gid = implode(',',$tmp);
        if($gid){
-           $rs = $this->mysql->query("select A.* from dp_node as A left join dp_node as B on A.nid = B.pid where A.role in($gid) and A.status = 1 group by A.nid union select B.* from dp_node as A left join dp_node as B on A.nid = B.pid where A.role in($gid) and A.status = 1 group by B.nid ");
-           foreach ($rs->rows as $k => $v) {
+           $rs = Db::getInstance()->execute("select A.* from dp_node as A left join dp_node as B on A.nid = B.pid where A.role in($gid) and A.status = 1 group by A.nid union select B.* from dp_node as A left join dp_node as B on A.nid = B.pid where A.role in($gid) and A.status = 1 group by B.nid");
+
+           foreach ($rs as $k => $v) {
                if($v['role'] != 0) {
-                   $route = $this->mysql->query("SELECT * FROM `dp_auth_rule` WHERE `dp_auth_rule`.`id` = ".$v['role'])->row['name'];
+                   $route = Db::getInstance()->select("dp_auth_rule","*",array('id' =>$v['role']),'','',1);
+                   $route = $route['name'];
                    if(!$route){
                        $route = $v['url'];
                    }
-                   $rs->rows[$k]['route']  = $route;
+                   $rs[$k]['route']  = $route;
                } else {
-                   $rs->rows[$k]['route'] = '';
+                   $rs[$k]['route'] = '';
                }
            }
-
-           $datya = \Core\library\Node::channelLevel($rs->rows, 0,"&nbsp", "nid");
+           $datya = Node::channelLevel($rs, 0,"&nbsp", "nid");
            return $datya;
        }
 

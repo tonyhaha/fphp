@@ -36,7 +36,9 @@
                         </thead>
                         <tbody>
                         <?php foreach($list as $key=>$val){?>
+                        </tr>
                            [[gridrow]]
+                           <tr>
                         <?php }?>
 
 

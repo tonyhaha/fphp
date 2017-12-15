@@ -72,7 +72,7 @@ class Generation extends Service
                 $fields[] = "          <div class=\"form-group\">
                         <label class=\"col-sm-2 control-label\">$comment</label>
                         <div class=\"col-sm-10\">
-                        <select class=\"form-control\" name=\"data['$field']\">
+                        <select class=\"form-control\" name=\"data[$field]\">
                             <option ><?php echo \$info['$field']?></option>
                         </select>
                         </div>
@@ -81,7 +81,7 @@ class Generation extends Service
                 $fields[] = "          <div class=\"form-group\">
                         <label class=\"col-sm-2 control-label\">$comment</label>
                         <div class=\"col-sm-10\">
-                            <input type=\"text\" class=\"form-control span12\" name=\"data['$field']\" value=\"<?php echo \$info['$field']?>\">
+                            <input type=\"text\" class=\"form-control span12\" name=\"data[$field]\" value=\"<?php echo \$info['$field']?>\">
 
                         </div>
                     </div>";
@@ -132,12 +132,13 @@ class Generation extends Service
             $comment = $value['Comment'];
             $field = $value['Field'];
             $gridheader[] = "<th><b>" . $comment . "</b></th>";
-            $gridrow[] = '<td><?php echo $row["' . $field . '"] ?></td>';
+            $gridrow[] = '<td><?php echo $val["' . $field . '"] ?></td>';
         }
+        $gridheader[] = "<th><b>操作</b></th>";
         $gridrow[] = "<td>
-<a  href=\"/product/edit?id=<?php echo \$val['$field']?> \" class=\"edit\"><span class=\"label label-default\">修改</span></a>
+<a  href=\"/$name/edit?id=<?php echo \$val['id']?> \" class=\"edit\"><span class=\"label label-default\">修改</span></a>
 
- <a href=\"javascript:;\" url=\"/product/del?id=<?php echo \$val['$field']?>\" class=\"delete\"><span class=\"label label-danger\">删除</span></a>
+ <a href=\"javascript:;\" url=\"/$name/del?id=<?php echo \$val['id']?>\" class=\"delete\"><span class=\"label label-danger\">删除</span></a>
 </td>";
 
         $controller = file('core/helpers/list_view.src');

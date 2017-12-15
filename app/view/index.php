@@ -1,8 +1,11 @@
+
+
+
 <?php echo $header;?>
 
 <div class="content">
     <div class="header">
-        <h1 class="page-title">数据列表</h1>
+        <h1 class="page-title">列表</h1>
 
     </div>
 
@@ -12,12 +15,11 @@
             <form class="form-inline">
                 <div class="form-group">
                     <div class="input-group">
-                        <div class="input-group-addon">标题</div>
-                        <input name="title" class="form-control span12" type="text" value="<?php echo $title;?>" style="width: 180px;">
+                        <div class="input-group-addon">名称</div>
+                        <input name="name" class="form-control span12" type="text" value="<?php echo $name;?>" style="width: 180px;">
                     </div>
                 </div>
                <button type="submit" class="btn btn-primary" name="view_type" value="web">搜索</button>
-                <a class="btn btn-primary" href="<?php echo $config['default_php']?>/product/add">添加数据</a><br><br>
             </form>
                 </div>
         </div>
@@ -28,30 +30,26 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>标题</th>
-                            <th >货号 </th>
-                            <th >价格</th>
-                            <th >条码 </th>
-                            <th >操作</th>
+
+<th><b>用户ID</b></th>
+<th><b>名称</b></th>
+                            <th><b>操作</b></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php foreach($list as $key=>$val){?>
-                        <tr id="data_<?php echo $val["id"] ?>">
-
-                            <td title="<?php echo $val["id"] ?>"><?php echo $val['id'];?></td>
-                            <td title="<?php echo $val["title"] ?>"><?php echo $val['title'];?></td>
-
-                            <td title="<?php echo $val["product_ns"] ?>"><?php echo $val['product_ns'];?></td>
-                            <td title="<?php echo $val["price"] ?>"><?php echo $val['price'];?></td>
-                            <td title="<?php echo $val["barcode"] ?>"><?php echo $val['barcode'];?></td>
-                            <td>
-                            <a  href="/product/edit?id=<?php echo $val["id"] ?>" class="edit"><span class="label label-default">修改</span></a>
-                                <a href="javascript:;" url="/product/del?id=<?php echo $val["id"] ?>" class="delete"><span class="label label-danger">删除</span></a>
-                            </td>
                         </tr>
+                           <td><?php echo $val["id"] ?></td>
+<td><?php echo $val["uid"] ?></td>
+<td><?php echo $val["name"] ?></td>
+<td>
+
+ <a href="javascript:;" url="/table/del?name=<?php echo $val['name']?>" class="delete"><span class="label label-danger">删除</span></a>
+</td>
+                           <tr>
                         <?php }?>
+
+
                         </tbody>
                     </table>
 
@@ -96,3 +94,8 @@
 </script>
 </body>
 </html>
+
+
+
+
+

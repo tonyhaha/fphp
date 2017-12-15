@@ -149,7 +149,7 @@ class Db{
             $key = "(`".implode("`,`",array_keys($set))."`)";
             $val  = "('".implode("','",array_values($set))."')";
         }
-       // echo "insert into $table $key VALUES $val";
+       //echo "insert into $table $key VALUES $val";
         $this->query("insert into $table $key VALUES $val");
         $return = $this->pdo->lastInsertId();
         return $return;

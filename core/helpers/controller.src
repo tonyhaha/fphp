@@ -3,6 +3,9 @@ namespace App\controller;
 use Core\engine\Controller;
 use Core\library\db\Db;
 use Core\library\Response;
+use Core\library\Pagination;
+use Core\library\Request;
+use Service\Auth;
 class [[controller_name]] extends Controller
 {
 
@@ -13,7 +16,10 @@ class [[controller_name]] extends Controller
     public function __construct($registry)
     {
         parent::__construct($registry);
-        $this->load->bootstrap($registry);
+        $registry->set('request',new Request());
+        $registry->set('pagination',new Pagination());
+        $auth = new Auth($registry);
+        $registry->set('userinfo',$auth->getLoginInfo());
     }
 
 
@@ -107,7 +113,7 @@ class [[controller_name]] extends Controller
         }else{
             $id = $this->request->get('id');
             $this->data['userinfo'] = $this->userinfo;
-            $this->data['info'] = Db::getInstance()->select("product",'*',array('id'=>$id),'', "",1);
+            $this->data['info'] = Db::getInstance()->select($this->table,'*',array('id'=>$id),'', "",1);
             $this->data['action'] = 'edit';
             Response::getInstance()->view($this->table.'/detail', $this->data);
         }

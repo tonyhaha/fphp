@@ -202,7 +202,8 @@ class Manage extends Controller{
     public function delGroup(){
         $gid = $this->request->get('gid');
         if($gid){
-            $rs = Db::getInstance()->delete('dp_auth_group',array('id'=>$gid));
+            Db::getInstance()->delete('dp_auth_group',array('id'=>$gid));
+            $rs = Db::getInstance()->delete('dp_auth_group_access',array('group_id'=>$gid));
             if ($rs) {
                 $msg = "操作成功 ! <-_-> ";
                 $ref = $_SERVER['HTTP_REFERER'];
@@ -318,11 +319,15 @@ class Manage extends Controller{
             $role = $this->request->post('role');
             $url = $this->request->post('url');
             if($type == 2 && $role != 0) {
-                ajax(array('code'=>-1,'msg'=>"二级菜单不必选择规则，请重新填写",'url'=>''));
+                Response::getInstance()->ajax(array('code'=>-1,'msg'=>"二级菜单不必选择规则，请重新填写",'url'=>''));
             }
             if($pid == 0 && $type != 1) {
-                ajax(array('code'=>-1,'msg'=>"一级菜单需选择 权限菜单，请重新填写",'url'=>''));
-            }            
+                Response::getInstance()->ajax(array('code'=>-1,'msg'=>"一级菜单需选择 权限菜单，请重新填写",'url'=>''));
+            }
+            if($pid != 0){
+                $role = 0;
+                $type = 1;
+            }
             $condition = $this->request->post('condition');
             $this->mysql->prepare("insert into dp_node(`pid`,`title`,`type`,`role`,`url`)values(:name,:title,:type,:role,:url)");
             $this->mysql->bindParam(':name',$pid);

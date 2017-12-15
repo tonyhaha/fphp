@@ -79,8 +79,6 @@
                         });
                         setTimeout(function(){
                             dialog.close();
-                            window.location.href = "/product/index";
-
 
                         },2000);
                     }

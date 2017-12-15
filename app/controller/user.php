@@ -35,8 +35,6 @@ class User extends Controller{
             Response::getInstance()->redirect($this->data['config']['default']);
         }
         Response::getInstance()->html($this->load->view('login',$this->data));
-
-
     }
 
 
@@ -62,7 +60,7 @@ class User extends Controller{
                     } else {
                         $_SESSION['userinfo'] = $ret;
                         $msg = '登录成功 <-_-> 正在为你转跳..';
-                        $ref = '/product/index';
+                        $ref = '/table/create';
                         $code = 200;
                     }
                 } else {
@@ -110,6 +108,7 @@ class User extends Controller{
                     $data['phone'] = $phone;
                     $rs = $this->passport->addUser($data);
                     if($rs){
+                        Db::getInstance()->insert('dp_auth_group_access',array('uid'=>$rs,'group_id'=>2));
                         $msg = "注册成功 <-_-> 正在为你转跳..";
                         $ref = $this->data['config']['default_php'].'/user/login';
                         $code = 200;
