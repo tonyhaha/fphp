@@ -27,7 +27,7 @@ class Action {
 
         // Stop any magical methods being called
         if (substr($this->method, 0, 2) == '__') {
-            return new \Exception('Error: Calls to magic methods are not allowed!');
+            throw new \Exception('Error: Calls to magic methods are not allowed!');
         }
         $middleware_config = $registry->get('load')->config('middleware');
         if(isset($middleware_config[$this->route.'/'.$this->method])){
@@ -58,7 +58,7 @@ class Action {
         if (class_exists($class)) {
             $controller = new $class($registry);
         } else {
-            return new \Exception('Error: Could not call ' . $this->route . '/' . $this->method . '!');
+            throw new \Exception('Error: Could not call ' . $this->route . '/' . $this->method . '!');
         }
         $reflection = new \ReflectionClass($class);
 
@@ -75,7 +75,7 @@ class Action {
             }
 
         } else {
-            return new \Exception('Error: Could not call ' . $this->route . '/' . $this->method . '!');
+            throw new \Exception('Error: Could not call ' . $this->route . '/' . $this->method . '!');
         }
     }
 }

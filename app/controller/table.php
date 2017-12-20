@@ -41,7 +41,7 @@ class Table extends Controller
             if ($rs) {
                 $this->deleteAuth($this->userinfo['id'],$id);
                 File::deleteDir(DIR_APP.'/view/'.$id);
-                File::deleteFile(DIR_APP.'/controller/'.$id);
+                File::deleteFile(DIR_APP.'/controller/'.$id.'.php');
                 $msg = "操作成功 ! <-_-> ";
                 $ref = $_SERVER['HTTP_REFERER'];
                 $code = 200;
@@ -95,7 +95,7 @@ class Table extends Controller
                    id INT NOT NULL AUTO_INCREMENT COMMENT 'ID',
                     $field
                    PRIMARY KEY ( id )
-                )";
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8";
                 //echo $sql;exit;
                 $rs = Db::getInstance()->exec($sql);
                 if ($rs !== false) {
